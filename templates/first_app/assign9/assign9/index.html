@@ -1,151 +1,135 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html>
   <head>
-    <title>Novak - Assignment 9</title>
+    <title>Maternity Survey</title>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
-    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
-    <link rel="stylesheet" href="{% static "css/main.css" %}">
-<link href="{% static "TradeGothicW01-Bold2.ttf" %}" rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
+    <link rel="stylesheet" href="http://www.ketteringhealth.org/css/bootstrap.css" media="all">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <header>
-      <h1>MARVEL SUPERHERO SURVEY</h1>
-      <h2>BY EMILY NOVAK</h2>
+      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+      <h1>Maternity Survey</h1>
     </header>
     <main>
-      <p>{{insert_me}}</p>
-
-
-      <form name="survey_form" action="submit.html" method="post">
-
-
-
-        <fieldset>
-          <legend>Personal Information</legend>
-            <label for="age">Age:</label>
-            <input type="text" name="age" value="1" maxlength="3" title="Must be between 1 and 3 digits" pattern="\d{1,3}" required><br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br>
-        </fieldset>
-
-
-        <fieldset>
-          <legend>Gender</legend>
-            <label><input type="radio" name="gender" value="male" checked>Male</label><br>
-            <label><input type="radio" name="gender" value="female">Female</label><br>
-        </fieldset>
-
-        <fieldset>
-          <legend>Favorite Marvel Cinematic Universe Film</legend>
-            <select name="favorite_avenger">
-              <option value="ironman">Iron Man</option>
-              <option value="hulk">The Incredible Hulk</option>
-              <option value="ironman2">Iron Man 2</option>
-              <option value="thor">Thor</option>
-              <option value="captainamerica">Captain America: The First Avenger</option>
-              <option value="avengers">The Avengers</option>
-              <option value="ironman3">Iron Man 3</option>
-              <option value="thor2">Thor: The Dark World</option>
-              <option value="captainamerica2">Captain America: The Winter Soldier</option>
-              <option value="vision">Guardians of the Galaxy</option>
-              <option value="ultron">Avengers: Age of Ultron</option>
-              <option value="antman">Ant-Man</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-          <legend>Favorite Guardian of the Galaxy</legend>
-            <select name="favorite_guardian">
-                <option value="starlord">Peter Quill/Star Lord</option>
-                <option value="gamora">Gamora</option>
-                <option value="drax">Drax</option>
-                <option value="rocket">Rocket Raccoon</option>
-                <option value="groot">Groot</option>
-              </select>
-        </fieldset>
-
-        <fieldset>
-          <legend>Favorite Marvel Cinematic Universe Villain</legend>
-            <select name="favorite_villain">
-              <option value="stane">Obadiah Stane</option>
-              <option value="generalross">General Thaddeus "Thunderbolt" Ross</option>
-              <option value="hammer">Justin Hammer</option>
-              <option value="whiplash">Whiplash</option>
-              <option value="loki">Loki</option>
-              <option value="redskull">Red Skull</option>
-              <option value="killian">Aldrich Killian</option>
-              <option value="malekith">Malekith</option>
-              <option value="wintersoldier">The Winter Soldier</option>
-              <option value="crossbones">Crossbones</option>
-              <option value="ronan">Ronan</option>
-              <option value="nebula">Nebula</option>
-              <option value="thanos">Thanos</option>
-              <option value="ultron">Ultron</option>
-              <option value="yellowjacket">Darren Cross/Yellowjacket</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-          <legend>Favorite Defender</legend>
-          <div class="defenders">
-            <section>
-              <label><input type="radio" name="defenders" value="daredevil" checked><img src="{% static "images/daredevil.jpg" %}" alt="Daredevil"></label><br><br>
-            </section>
-            <section>
-              <label><input type="radio" name="defenders" value="jessicajones"><img src="{% static "images/jessica.jpg" %}" alt="Jessica Jones"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="defenders" value="lukecage"><img src="{% static "images/luke.jpg" %}"  alt="Luke Cage"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="defenders" value="ironfist"><img src="{% static "images/ironfist.jpg" %}" alt="Iron Fist"></label><br>
-            </section>
+    </br>
+    <h3>Please fill out the following questionnaire based on your recent experience.</h3>
+    <div class="form-inline">
+      <ol>
+        <li><p>Please rate the overall quality of the Labor & Delivery Suite:</p>
+        <div class="col-md-3">
+        <label>
+        <input type="radio" id="deliverySuite"></input> 1 (terrible) </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" id="deliverySuite"></input> 2 </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" id="deliverySuite"></input> 3 </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" id="deliverySuite"></input> 4 </label>
+        </div>
+        <div class="col-md-3">
+        <label>
+        <input type="radio" id="deliverySuite"></input> 5 (great) </label>
+        </div>
+        </li>
+        <li>
+          <p>On average, about how often did the nurse on duty check on the patient(s)?</p>
+          <div class="col-md-3">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Multiple times each hour </label>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Favorite Agent of Shield</legend>
-          <div class="agents_of_shield1">
-            <section>
-              <label><input type="radio" name="agents_of_shield1" value="coulson"><img src="{% static "images/coulson.jpg" %}" alt="Coulson"></label><br><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield1" value="quake"><img src="images/skye.jpg" alt="Daisy Quake Johnson"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield1" value="may"><img src="images/may.jpg" alt="Melinda May"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield1" value="mack"><img src="images/mack.jpg" alt="Mack"></label><br>
-            </section>
+          <div class="col-md-3">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Once per hour </label>
           </div>
-          <div class="agents_of_shield2">
-            <section>
-              <label><input type="radio" name="agents_of_shield2" value="fitz"><img src="images/fitz.jpg" alt="Leo Fitz"></label><br><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield2" value="simmons"><img src="images/simmons.jpg" alt="Jemma Simmons"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield2" value="hunter"><img src="images/hunter.jpg" alt="Hunter"></label><br>
-            </section>
-            <section>
-              <label><input type="radio" name="agents_of_shield2" value="bobbi"><img src="images/bobbi.jpg" alt="Mockingbird"></label><br>
-            </section>
+          <div class="col-md-3">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Once every 2 hours </label>
           </div>
-        </fieldset>
-
-      <p><input type="submit" name="submit" value="SUBMIT"></p>
-
-
-      </form>
-
-
+          <div class="col-md-3">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Once every 3 or more hours </label>
+          </div>
+        </li>
+        <li>
+          <p>After being discharged, how is the overall health of your baby/babies?</p>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Poor </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> OK </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Neutral </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Good </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Great </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Excellent </label>
+          </div>
+        </li>
+        <li>
+          <p>During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in any way?</p>
+          <div class="col-md-6">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Yes </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> No </label>
+          </div>
+        </li>
+        <li>
+          <p>If you answered yes in the previous question, what was the reason that your child was cared for in the NICU?</p>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Not applicable </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Pre-Mature </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Low birth weight </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Multiples (twins/triplets) </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Oxygen Therapy </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" id="deliverySuite"></input> Special Needs Feeding </label>
+          </div>
+        </li>
+        <li>
+          <p>Please comment below if you have any further opinions on your recent visit.</p>
+          <textarea class="form-control" rows="5"></textarea>
+        </li>
+      </ol>
+    </div>
+    <button class="btn submit">Submit</button>
     </main>
-    <footer>
-      <p>Web Development I, Assignment 9, April 5</p>
-    </footer>
   </body>
 </html>
