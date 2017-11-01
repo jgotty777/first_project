@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
   <head>
     <title>Maternity Survey</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
     <link rel="stylesheet" href="http://www.ketteringhealth.org/css/bootstrap.css" media="all">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
   </head>
   <body>
     <header>
@@ -20,107 +21,107 @@
         <li><p>Please rate the overall quality of the Labor & Delivery Suite:</p>
         <div class="col-md-3">
         <label>
-        <input type="radio" id="deliverySuite"></input> 1 (terrible) </label>
+        <input type="radio" name="deliverySuite" checked></input> 1 (terrible) </label>
         </div>
         <div class="col-md-2">
         <label>
-        <input type="radio" id="deliverySuite"></input> 2 </label>
+        <input type="radio" name="deliverySuite"></input> 2 </label>
         </div>
         <div class="col-md-2">
         <label>
-        <input type="radio" id="deliverySuite"></input> 3 </label>
+        <input type="radio" name="deliverySuite"></input> 3 </label>
         </div>
         <div class="col-md-2">
         <label>
-        <input type="radio" id="deliverySuite"></input> 4 </label>
+        <input type="radio" name="deliverySuite"></input> 4 </label>
         </div>
         <div class="col-md-3">
         <label>
-        <input type="radio" id="deliverySuite"></input> 5 (great) </label>
+        <input type="radio" name="deliverySuite"></input> 5 (great) </label>
         </div>
         </li>
         <li>
-          <p>On average, about how often did the nurse on duty check on the patient(s)?</p>
+          <p>On average, about how often dname the nurse on duty check on the patient(s)?</p>
           <div class="col-md-3">
           <label>
-          <input type="radio" id="deliverySuite"></input> Multiple times each hour </label>
+          <input type="radio" name="nurse" checked></input> Multiple times each hour </label>
           </div>
           <div class="col-md-3">
           <label>
-          <input type="radio" id="deliverySuite"></input> Once per hour </label>
+          <input type="radio" name="nurse"></input> Once per hour </label>
           </div>
           <div class="col-md-3">
           <label>
-          <input type="radio" id="deliverySuite"></input> Once every 2 hours </label>
+          <input type="radio" name="nurse"></input> Once every 2 hours </label>
           </div>
           <div class="col-md-3">
           <label>
-          <input type="radio" id="deliverySuite"></input> Once every 3 or more hours </label>
+          <input type="radio" name="nurse"></input> Once every 3 or more hours </label>
           </div>
         </li>
         <li>
           <p>After being discharged, how is the overall health of your baby/babies?</p>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Poor </label>
+          <input type="radio" name="babyHealth" checked></input> Poor </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> OK </label>
+          <input type="radio" name="babyHealth"></input> OK </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Neutral </label>
+          <input type="radio" name="babyHealth"></input> Neutral </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Good </label>
+          <input type="radio" name="babyHealth"></input> Good </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Great </label>
+          <input type="radio" name="babyHealth"></input> Great </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Excellent </label>
+          <input type="radio" name="babyHealth"></input> Excellent </label>
           </div>
         </li>
         <li>
           <p>During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in any way?</p>
           <div class="col-md-6">
           <label>
-          <input type="radio" id="deliverySuite"></input> Yes </label>
+          <input type="radio" name="nicu" checked></input> Yes </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> No </label>
+          <input type="radio" name="nicu"></input> No </label>
           </div>
         </li>
         <li>
           <p>If you answered yes in the previous question, what was the reason that your child was cared for in the NICU?</p>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Not applicable </label>
+          <input type="radio" name="nicuCondition" checked></input> Not applicable </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Pre-Mature </label>
+          <input type="radio" name="nicuCondition"></input> Pre-Mature </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Low birth weight </label>
+          <input type="radio" name="nicuCondition"></input> Low birth weight </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Multiples (twins/triplets) </label>
+          <input type="radio" name="nicuCondition"></input> Multiples (twins/triplets) </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Oxygen Therapy </label>
+          <input type="radio" name="nicuCondition"></input> Oxygen Therapy </label>
           </div>
           <div class="col-md-2">
           <label>
-          <input type="radio" id="deliverySuite"></input> Special Needs Feeding </label>
+          <input type="radio" name="nicuCondition"></input> Special Needs Feeding </label>
           </div>
         </li>
         <li>
@@ -129,7 +130,7 @@
         </li>
       </ol>
     </div>
-    <button class="btn submit">Submit</button>
+    <button class="btn">Submit</button>
     </main>
   </body>
 </html>
