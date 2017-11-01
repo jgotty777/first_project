@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['testenv3.hz2jj2qvsu.us-east-2.elasticbeanstalk.com', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'first_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'first_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -79,9 +77,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'ebdb',
+    #     'USER': 'admin',
+    #     'PASSWORD': 'admin123',
+    #     'HOST': 'aai6mtfsgyyo4p.cxgry479qrcw.us-east-2.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -101,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -114,7 +118,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

@@ -2,6 +2,12 @@ branch-defaults:
   default:
     environment: testEnv3
     group_suffix: null
+  master:
+    environment: testEnv3
+environment-defaults:
+  testEnv3:
+    branch: null
+    repository: null
 global:
   application_name: test3
   branch: null
@@ -14,5 +20,5 @@ global:
   platform_version: null
   profile: eb-cli
   repository: null
-  sc: null
+  sc: git
   workspace_type: Application
