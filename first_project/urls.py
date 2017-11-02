@@ -19,7 +19,7 @@ from django.conf.urls import include
 from first_app import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^submit', views.submit, name='submit'),
-    url(r'^I_can_feel_your_judgement_from_here/', include('first_app.urls')),
+    url(r'^submit/', views.submit, name='submit'),
+    
     url(r'^admin/', admin.site.urls),
 ]

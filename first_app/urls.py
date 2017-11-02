@@ -5,5 +5,5 @@ urlpatterns = [
 
     url(r'^$', views.index2, name='index2'),
     url(r'^buttsauce/', views.buttsauce, name='buttsauce')
-
+    
 ]

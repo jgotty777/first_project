@@ -74,18 +74,18 @@ WSGI_APPLICATION = 'first_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'ebdb',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'admin123',
-    #     'HOST': 'aai6mtfsgyyo4p.cxgry479qrcw.us-east-2.rds.amazonaws.com',
-    #     'PORT': '3306',
-    # }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #},
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'testdb',
+         'USER': 'w028jtg',
+         'PASSWORD': 'Jgotty1995!',
+         'HOST': 'localhost',
+         'PORT': '3306',
+     }
 }
 
 # Password validation
