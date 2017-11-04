@@ -1,0 +1,39 @@
+html {
+    background-image: #f5f5f3;
+}
+
+.submitMessage {
+    text-align: center;
+    border-top: thick solid rgb(0, 102, 102);
+    border-bottom: thick solid rgb(0, 102, 102);
+    display: block;
+    margin: 10% 5%;
+}
+
+.submitMessage h1 {
+    margin-top: 5%;
+    line-height: 40px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 26px;
+}
+
+.submitMessage h2 {
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+}
+
+.submitMessage img {
+    display: block;
+    margin: 0 auto 5% auto;
+}
+
+h1, h2 {
+    margin: 16px 0 12px 0;
+    font-weight: normal;
+    color: #444;
+    text-rendering: optimizelegibility;
+}
+
+
+

@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'first_app/assign9/assign9/index.html',context=my_dict)
 
 def submit(request):
-    pat = Patient(pk=1);
+    pat = Patient(pk=1)
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
     heal = request.POST.get('babyHealth')
@@ -20,7 +20,7 @@ def submit(request):
     comm = request.POST.get('comments')
     saveObj = Maternity(patient_id = pat, quality = qual, frequency = freq, health = heal, nicu = nic, reason = reas, comments = comm)
     saveObj.save()
-    return HttpResponse("should save")
+    return render(request, 'first_app/assign9/assign9/submit.html')
 
 def index2(request):
     return HttpResponse("Stop Judging me")
