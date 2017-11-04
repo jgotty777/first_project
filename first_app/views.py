@@ -27,3 +27,9 @@ def index2(request):
 
 def buttsauce(request):
     return HttpResponse("<b>buttsauce</b>")
+
+def login(request):
+    return render(request, 'first_app/registration/login.html')
+
+def logout(request):
+    return HttpResponse("<b>logout</b>")

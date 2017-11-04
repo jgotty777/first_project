@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
@@ -78,22 +79,22 @@ DATABASES = {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #},
-     # 'default': {
-     #     'ENGINE': 'django.db.backends.mysql',
-     #     'NAME': 'mydb',
-     #     'USER': 'root',
-     #     'PASSWORD': 'icicle10',
-     #     'HOST': 'localhost',
-     #     'PORT': '3306',
-     # }
-'default': {
+     'default': {
          'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'ebdb',
-         'USER': 'admin',
-         'PASSWORD': 'admin123',
-         'HOST': 'aai6mtfsgyyo4p.cxgry479qrcw.us-east-2.rds.amazonaws.com',
+         'NAME': 'mydb',
+         'USER': 'root',
+         'PASSWORD': 'icicle10',
+         'HOST': 'localhost',
          'PORT': '3306',
      }
+# 'default': {
+#          'ENGINE': 'django.db.backends.mysql',
+#          'NAME': 'ebdb',
+#          'USER': 'admin',
+#          'PASSWORD': 'admin123',
+#          'HOST': 'aai6mtfsgyyo4p.cxgry479qrcw.us-east-2.rds.amazonaws.com',
+#          'PORT': '3306',
+#      }
 
 }
 

@@ -6,7 +6,12 @@ import datetime
 
 # Create your models here.
 from django.db import models
+from django.contrib.auth.models import User
 
+class Login_User(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
 
 class Patient(models.Model):
     id  = models.AutoField(primary_key=True)
