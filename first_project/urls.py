@@ -22,7 +22,7 @@ from first_app import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^submit/', views.submit, name='submit'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^maternity/', views.maternitySurvey, name='maternity'),
     url(r'^login_submit/$', views.login_submit, name="login_submit"),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),

@@ -7,11 +7,13 @@ from .models import Patient, Maternity, Login_User
 
 # Create your views here.
 def index(request):
-    my_dict = {'insert_me':"Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/assign9/assign9/index.html',context=my_dict)
+    return render(request, 'first_app/registration/login.html')
+
+def maternitySurvey(request):
+     my_dict = {'insert_me':"Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
+     return render(request, 'first_app/assign9/assign9/maternitySurvey.html',context=my_dict)
 
 def submit(request):
-    # pat = Patient(pk=1)
     pat = Patient.objects.get(pk=1)
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
@@ -23,23 +25,13 @@ def submit(request):
     saveObj.save()
     return render(request, 'first_app/assign9/assign9/submit.html')
 
-def index2(request):
-    return HttpResponse("Stop Judging me")
-
-def buttsauce(request):
-    return HttpResponse("<b>buttsauce</b>")
-
-def login(request):
-    return render(request, 'first_app/registration/login.html')
-
 def login_submit(request):
     name = request.POST.get('username')
     passw = request.POST.get('password')
     user = Login_User.objects.get(username=name)
-    # return HttpResponse(user.admin)
     if user.password == passw:
         if user.admin == 0:
-            return render(request, 'first_app/assign9/assign9/index.html')
+            return render(request, 'first_app/assign9/assign9/maternitySurvey.html')
         if user.admin == 1:
             return render(request, 'first_app/assign9/assign9/dashboard.html')
     else:
