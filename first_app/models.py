@@ -12,6 +12,7 @@ class Login_User(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
+    admin = models.IntegerField(default=0)
 
 class Patient(models.Model):
     id  = models.AutoField(primary_key=True)

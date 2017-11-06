@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.contrib.auth import views
 from django.conf.urls import include
 from first_app import views
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^submit/', views.submit, name='submit'),
     url(r'^login/$', views.login, name='login'),
+    url(r'^login_submit/$', views.login_submit, name="login_submit"),
     url(r'^logout/$', views.logout, name='logout'),
+    url(r'^dashboard/$', views.dashboard, name='dashboard'),
     url(r'^admin/', admin.site.urls)
 ]

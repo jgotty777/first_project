@@ -12,7 +12,7 @@
     <div class="loginScreen">
         <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
         <h1>Login</h1>
-        <form class="form-inline" role="form" method="post">
+        <form action="{% url 'login_submit' %}" class="form-inline" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="input-group">
@@ -20,7 +20,7 @@
                 <span class="input-group-addon" id="username"><span class="glyphicon glyphicon-user"></span></span>
             </div>
             <div class="input-group">
-            <input class="form-control" type="text" area-describedby="password" name="password" placeholder="Password">
+            <input class="form-control" type="password" area-describedby="password" name="password" placeholder="Password">
             <span class="input-group-addon" id="password"><span class="glyphicon glyphicon-lock"></span></span>
             </input>
                 </div>

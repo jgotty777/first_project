@@ -136,3 +136,5 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
+LOGIN_REDIRECT_URL = 'index';
+
