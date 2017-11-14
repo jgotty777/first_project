@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>BSS Survey</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
+    <link rel="stylesheet" href="http://www.ketteringhealth.org/css/bootstrap.css" media="all">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <header>
+      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+      <h1>Brain, Spine, & Stroke Survey</h1>
+    </header>
+    <main>
+    </br>
+    <h3>Please fill out the following questionnaire based on your recent experience.</h3>
+    <form action="{% url 'submit' %}" method="post" class="form-inline">
+      {% csrf_token %}
+      <ol>
+        <li><p>Which condition applies to you for visiting our facility?</p>
+        <div class="col-md-3">
+        <label>
+        <input type="radio" name="bssCondition" checked></input> Epilepsy </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" name="bssCondition"></input> Brain Tumor </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" name="bssCondition"></input> Spine </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" name="bssCondition"></input> Stroke </label>
+        </div>
+        <div class="col-md-3">
+        <label>
+        <input type="radio" name="bssCondition"></input> Neuropsychology </label>
+        </div>
+        <div class="col-md-2">
+        <label>
+        <input type="radio" name="bssCondition" value=""> Other <input class="form-control" type="text" name="other" /></input></label>
+        </div>
+        </li>
+        <li>
+          <p>Which of our centers in the NeuroScience Institute did you visit?</p>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices" checked></input> Sleep Disorders Center </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Neuropsychologist Services </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Spine Services</label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Brain Tumors Services</label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Gamma Knife Center </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Epilepsy Center </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssServices"></input> Stroke Services </label>
+          </div>
+        </li>
+        <li>
+          <p>What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?</p>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality" checked></input> Poor </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality"></input> OK </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality"></input> Neutral </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality"></input> Good </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality"></input> Great </label>
+          </div>
+          <div class="col-md-2">
+          <label>
+          <input type="radio" name="bssQuality"></input> Excellent </label>
+          </div>
+        </li>
+        <li>
+          <p>Please indicate which of our support groups you may be intersted in attending, if any:</p>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssSupportGroup" checked></input> Southwest Ohio Brain Tumor Support Group </label>
+          </div>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssSupportGroup"></input> Stroke Survivors Club </label>
+          </div>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssSupportGroup"></input> Not interested </label>
+          </div>
+        </li>
+        <li>
+          <p>How has your condition changed overall since your visit to our facility?</p>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssConditionChange" checked></input> Improved </label>
+          </div>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssConditionChange"></input> No change </label>
+          </div>
+          <div class="col-md-4">
+          <label>
+          <input type="radio" name="bssConditionChange"></input> Worsened </label>
+          </div>
+        </li>
+        <li>
+          <p>Please comment below if you have any further opinions on your recent visit.</p>
+          <textarea class="form-control" rows="5"></textarea>
+        </li>
+      </ol>
+    </form>
+    <button class="btn">Submit</button>
+    </main>
+  </body>
+</html>

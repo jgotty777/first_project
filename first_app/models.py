@@ -13,6 +13,7 @@ class Login_User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     admin = models.IntegerField(default=0)
+    survey = models.CharField(max_length=100, default="null")
 
 class Patient(models.Model):
     id  = models.AutoField(primary_key=True)

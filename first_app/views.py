@@ -11,7 +11,28 @@ def index(request):
 
 def maternitySurvey(request):
      my_dict = {'insert_me':"Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-     return render(request, 'first_app/assign9/assign9/maternitySurvey.html',context=my_dict)
+     return render(request, 'first_app/surveys/maternitySurvey.html',context=my_dict)
+
+
+def brainSpineSurvey(request):
+    my_dict = {
+        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
+    return render(request, 'first_app/surveys/maternitySurvey.html', context=my_dict)
+
+def emergencySurvey(request):
+    my_dict = {
+        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
+    return render(request, 'first_app/surveys/emergency.html', context=my_dict)
+
+def breastHealthSurvey(request):
+    my_dict = {
+        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
+    return render(request, 'first_app/surveys/breast_health.html', context=my_dict)
+
+def orthopedicsSurvey(request):
+    my_dict = {
+        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
+    return render(request, 'first_app/surveys/orthopedics.html', context=my_dict)
 
 def submit(request):
     pat = Patient.objects.get(pk=1)
@@ -23,7 +44,7 @@ def submit(request):
     comm = request.POST.get('comments')
     saveObj = Maternity(patient_id = pat, quality = qual, frequency = freq, health = heal, nicu = nic, reason = reas, comments = comm)
     saveObj.save()
-    return render(request, 'first_app/assign9/assign9/submit.html')
+    return render(request, 'first_app/surveys/submit.html')
 
 def login_submit(request):
     name = request.POST.get('username')
@@ -31,9 +52,20 @@ def login_submit(request):
     user = Login_User.objects.get(username=name)
     if user.password == passw:
         if user.admin == 0:
-            return render(request, 'first_app/assign9/assign9/maternitySurvey.html')
+            if user.survey == "Maternity":
+                return render(request, 'first_app/surveys/maternitySurvey.html')
+            if user.survey == "Brain":
+                return render(request, 'first_app/surveys/brain_spine_stroke.html')
+            if user.survey == "Ortho":
+                return render(request, 'first_app/surveys/orthopedics.html')
+            if user.survey == "Emergency":
+                return render(request, 'first_app/surveys/emergency.html')
+            if user.survey == "Breast":
+                return render(request, 'first_app/surveys/breast_health.html')
+            else:
+                return HttpResponse("No Survey Found")
         if user.admin == 1:
-            return render(request, 'first_app/assign9/assign9/dashboard.html')
+            return render(request, 'first_app/dashboard/dashboard.html')
     else:
         return HttpResponse("Username or Password is incorrect")
 
@@ -41,4 +73,4 @@ def logout(request):
     return HttpResponse("<b>logout</b>")
 
 def dashboard(request):
-    return render(request, 'first_app/assign9/assign9/dashboard.html')
+    return render(request, 'first_app/dashboard/dashboard.html')
