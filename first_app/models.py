@@ -34,3 +34,45 @@ class Maternity(models.Model):
     comments = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=datetime.datetime.now)
 
+class BSS(models.Model):
+    id = models.AutoField(primary_key=True)
+    patient_id = models.ForeignKey(User)
+    condition = models.CharField(max_length=200)
+    service = models.CharField(max_length=200)
+    quality = models.CharField(max_length=200)
+    support = models.CharField(max_length=200)
+    change = models.CharField(max_length=200)
+    comments = models.CharField(max_length=200)
+    timestamp = models.DateTimeField(default=datetime.datetime.now)
+
+class BreastHealth(models.Model):
+    id = models.AutoField(primary_key=True)
+    patient_id = models.ForeignKey(User)
+    center = models.CharField(max_length=200)
+    procedure = models.CharField(max_length=200)
+    mammogram = models.CharField(max_length=200)
+    quality = models.CharField(max_length=200)
+    support = models.CharField(max_length=200)
+    comments = models.CharField(max_length=200)
+    timestamp = models.DateTimeField(default=datetime.datetime.now)
+
+class Emergency(models.Model):
+    id = models.AutoField(primary_key=True)
+    patient_id = models.ForeignKey(User)
+    condition = models.CharField(max_length=200)
+    careflight = models.BooleanField()
+    location = models.CharField(max_length=200)
+    quality = models.CharField(max_length=200)
+    comments = models.CharField(max_length=200)
+    timestamp = models.DateTimeField(default=datetime.datetime.now)
+
+class Orthopedics(models.Model):
+    id = models.AutoField(primary_key=True)
+    patient_id = models.ForeignKey(User)
+    condition = models.CharField(max_length=200)
+    treatment = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    quality = models.CharField(max_length=200)
+    comments = models.CharField(max_length=200)
+    timestamp = models.DateTimeField(default=datetime.datetime.now)
+
