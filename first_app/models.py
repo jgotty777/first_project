@@ -33,3 +33,4 @@ class Maternity(models.Model):
     reason = models.CharField(max_length=200)
     comments = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=datetime.datetime.now)
+

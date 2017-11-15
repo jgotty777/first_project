@@ -21,7 +21,11 @@ from first_app import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^submit/', views.submit, name='submit'),
+    url(r'^matSubmit/', views.submit, name='matSubmit'),
+    url(r'^bssSubmit/', views.submit, name='bssSubmit'),
+    url(r'^brSubmit/', views.submit, name='brSubmit'),
+    url(r'^emergSubmit/', views.submit, name='emergSubmit'),
+    url(r'^orthoSubmit/', views.submit, name='orthoSubmit'),
     url(r'^maternity/', views.maternitySurvey, name='maternity'),
     url(r'^brainSpine/', views.brainSpineSurvey, name='brainSpine'),
     url(r'^emergency/', views.emergencySurvey, name='emergency'),
