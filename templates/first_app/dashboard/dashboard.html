@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html>
+  <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  </head>
   <body>
-      <h1>Dashboard goes here</h1>
-        <h2>Test page for Doctor login success</h2>
+    <header>
+      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><h4>Brain, Stroke, & Spine<h4></li>
+        <li><h4>Breast Health</h4></li>
+        <li><h4>Emergency</h4></li>
+        <li><h4>Maternity</h4></li>
+        <li><h4>Orthopedics</h4></li>
+      </ul>
+    </header>
+    <main>
+      <h3>Welcome to the Kettering Medical Network Admin Portal!</h3>
+    </main>
   </body>
 </html>
