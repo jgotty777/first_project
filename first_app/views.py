@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import get_object_or_404, render
 
 from django.http import HttpResponse
-from .models import Patient, Maternity, Login_User
+from .models import User, Maternity, User_Survey
 
 # Create your views here.
 def index(request):
@@ -35,7 +35,7 @@ def orthopedicsSurvey(request):
     return render(request, 'first_app/surveys/orthopedics.html', context=my_dict)
 
 def submit(request):
-    pat = Patient.objects.get(pk=1)
+    pat = User.objects.get(pk=1)
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
     heal = request.POST.get('babyHealth')
@@ -49,7 +49,7 @@ def submit(request):
 def login_submit(request):
     name = request.POST.get('username')
     passw = request.POST.get('password')
-    user = Login_User.objects.get(username=name)
+    user = User.objects.get(username=name)
     if user.password == passw:
         if user.admin == 0:
             if user.survey == "Maternity":
