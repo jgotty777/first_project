@@ -16,7 +16,7 @@
     <main>
     </br>
     <h3>Please fill out the following questionnaire based on your recent experience.</h3>
-    <form action="{% url 'bssSubmit' %}" method="post" class="form-inline">
+    <form action="{% url 'bssSubmit' %}?user={{request.GET.user}}" method="post" class="form-inline">
       {% csrf_token %}
       <ol>
         <li><p>Which condition applies to you for visiting our facility?</p>
@@ -138,8 +138,8 @@
           <textarea class="form-control" name="comments" rows="5"></textarea>
         </li>
       </ol>
+      <button class="btn">Submit</button>
     </form>
-    <button class="btn">Submit</button>
     </main>
   </body>
 </html>

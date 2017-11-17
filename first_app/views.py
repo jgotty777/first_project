@@ -17,7 +17,7 @@ def maternitySurvey(request):
 def brainSpineSurvey(request):
     my_dict = {
         'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/maternitySurvey.html', context=my_dict)
+    return render(request, 'first_app/surveys/brain_spine_stroke.html', context=my_dict)
 
 def emergencySurvey(request):
     my_dict = {
@@ -37,7 +37,8 @@ def orthopedicsSurvey(request):
 
 # Create submit views here
 def matSubmit(request):
-    pat = User.objects.get(pk=1)
+    user_id = request.GET.get('user')
+    pat = User.objects.get(pk=user_id)
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
     heal = request.POST.get('babyHealth')
@@ -46,10 +47,15 @@ def matSubmit(request):
     comm = request.POST.get('comments')
     saveObj = Maternity(patient_id = pat, quality = qual, frequency = freq, health = heal, nicu = nic, reason = reas, comments = comm)
     saveObj.save()
+    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
+    user_survey.status = 1
+    user_survey.save()
+
     return render(request, 'first_app/surveys/submit.html')
 
 def bssSubmit(request):
-    pat = User.objects.get(pk=1)
+    user_id = request.GET.get('user')
+    pat = User.objects.get(pk=user_id)
     cond = request.POST.get('bssCondition')
     serv = request.POST.get('bssServices')
     qual = request.POST.get('bssQuality')
@@ -58,10 +64,14 @@ def bssSubmit(request):
     comm = request.POST.get('comments')
     saveObj = BSS(patient_id = pat, condition = cond, service = serv, quality = qual, support = sup, change = condchange, comments = comm)
     saveObj.save()
+    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
+    user_survey.status = 1
+    user_survey.save()
     return render(request, 'first_app/surveys/submit.html')
 
 def brSubmit(request):
-    pat = User.objects.get(pk=1)
+    user_id = request.GET.get('user')
+    pat = User.objects.get(pk=user_id)
     cent = request.POST.get('breastCenter')
     proc = request.POST.get('breastProcedure')
     mamm = request.POST.get('breastMammogram')
@@ -70,10 +80,14 @@ def brSubmit(request):
     comm = request.POST.get('comments')
     saveObj = BreastHealth(patient_id = pat, center = cent, procedure = proc, mammogram = mamm, quality = qual, support = sup, comments = comm)
     saveObj.save()
+    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
+    user_survey.status = 1
+    user_survey.save()
     return render(request, 'first_app/surveys/submit.html')
 
 def emergSubmit(request):
-    pat = User.objects.get(pk=1)
+    user_id = request.GET.get('user')
+    pat = User.objects.get(pk=user_id)
     cond = request.POST.get('emergCondition')
     cf = request.POST.get('emergCareFlight')
     local = request.POST.get('emergLocal')
@@ -81,10 +95,14 @@ def emergSubmit(request):
     comm = request.POST.get('comments')
     saveObj = Emergency(patient_id = pat, condition = cond, careflight = cf, location = local, quality = qual, comments = comm)
     saveObj.save()
+    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
+    user_survey.status = 1
+    user_survey.save()
     return render(request, 'first_app/surveys/submit.html')
 
 def orthoSubmit(request):
-    pat = User.objects.get(pk=1)
+    user_id = request.GET.get('user')
+    pat = User.objects.get(pk=user_id)
     cond = request.POST.get('orthoCondition')
     treat = request.POST.get('orthoTreatment')
     local = request.POST.get('orthoLocal')
@@ -92,6 +110,9 @@ def orthoSubmit(request):
     comm = request.POST.get('comments')
     saveObj = Orthopedics(patient_id = pat, condition = cond, treatment = treat, location = local, quality = qual, comments = comm)
     saveObj.save()
+    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
+    user_survey.status = 1
+    user_survey.save()
     return render(request, 'first_app/surveys/submit.html')
 
 
@@ -102,18 +123,37 @@ def login_submit(request):
     user = User.objects.get(username=name)
     if user.password == passw:
         if user.admin == 0:
-            if user.survey == "Maternity":
-                return render(request, 'first_app/surveys/maternitySurvey.html')
-            if user.survey == "Brain":
-                return render(request, 'first_app/surveys/brain_spine_stroke.html')
-            if user.survey == "Ortho":
-                return render(request, 'first_app/surveys/orthopedics.html')
-            if user.survey == "Emergency":
-                return render(request, 'first_app/surveys/emergency.html')
-            if user.survey == "Breast":
-                return render(request, 'first_app/surveys/breast_health.html')
-            else:
-                return HttpResponse("No Survey Found")
+            surveys = User_Survey.objects.filter(patient_id=user, status=0)
+            # links = ''
+            links = []
+            for survey in surveys:
+                # links.append(survey.survey)
+                if survey.survey == "Maternity":
+                    # return render(request, 'first_app/surveys/maternitySurvey.html')
+                    # links += 'first_app/surveys/maternitySurvey.html, '
+                    links.append('maternity')
+                elif survey.survey == "Brain":
+                    # return render(request, 'first_app/surveys/brain_spine_stroke.html')
+                    # links += 'first_app/surveys/brain_spine_stroke.html, '
+                    links.append('brainSpine')
+                elif survey.survey == "Ortho":
+                    # return render(request, 'first_app/surveys/orthopedics.html')
+                    # links += 'first_app/surveys/orthopedics.html, '
+                    links.append('orthopedics')
+                elif survey.survey == "Emergency":
+                    # return render(request, 'first_app/surveys/emergency.html')
+                    # links += 'first_app/surveys/emergency.html, '
+                    links.append('emergency')
+                elif survey.survey == "Breast":
+                    # return render(request, 'first_app/surveys/breast_health.html
+                    # links += 'first_app/surveys/breast_health.html, '
+                    links.append('breastHealth')
+                # else:
+                    # return HttpResponse("No Survey Found")
+                    # links += survey.survey + ' has no link, '
+                    # links.append(survey.survey)
+            # return HttpResponse(links)
+            return render(request, 'first_app/dashboard/patient_dashboard.html', {'user': user.pk, 'links': links})
         if user.admin == 1:
             return render(request, 'first_app/dashboard/dashboard.html')
     else:
