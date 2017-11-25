@@ -3,17 +3,21 @@ branch-defaults:
     environment: testEnv3
     group_suffix: null
   master:
-    environment: testEnv3
+    environment: Survey-env
+    group_suffix: null
 environment-defaults:
+  Survey-env:
+    branch: null
+    repository: null
   testEnv3:
     branch: null
     repository: null
 global:
-  application_name: test3
+  application_name: survey
   branch: null
   default_ec2_keyname: null
-  default_platform: python2.7
-  default_region: us-east-2
+  default_platform: Python 2.7
+  default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
   platform_name: null
