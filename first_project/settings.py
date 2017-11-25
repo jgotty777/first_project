@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'ebdb',
         'USER': 'admin',
         'PASSWORD': 'admin123',
-        'HOST': 'aautn4qp8xas2i.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
+        'HOST': 'aaa4f5d3h09qpr.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 
