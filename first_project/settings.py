@@ -26,7 +26,7 @@ SECRET_KEY = 't(g%l+huq5-z4k4shpe$79pleb&w2$%u5btam8@vzb!0a3f%v3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testenv3.hz2jj2qvsu.us-east-2.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = ['survey-env.36yzjcfypj.us-east-1.elasticbeanstalk.com', '127.0.0.1']
 
 # Application definition
 
@@ -74,34 +74,34 @@ WSGI_APPLICATION = 'first_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
+    # 'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #},
-     # 'default': {
-     #     'ENGINE': 'django.db.backends.mysql',
-     #     'NAME': 'mydb',
-     #     'USER': 'root',
-     #     'PASSWORD': 'icicle10',
-     #     'HOST': 'localhost',
-     #     'PORT': '3306',
-     # }
+    # },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'mydb',
+    #     'USER': 'root',
+    #     'PASSWORD': 'icicle10',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # }
+    # 'default': {
+    #      'ENGINE': 'django.db.backends.mysql',
+    #      'NAME': 'testdb',
+    #      'USER': 'root',
+    #      'PASSWORD': 'root',
+    #      'HOST': 'localhost',
+    #      'PORT': '3306',
+    #  }
     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'testdb',
-         'USER': 'root',
-         'PASSWORD': 'root',
-         'HOST': 'localhost',
-         'PORT': '3306',
-     }
-# 'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': 'ebdb',
-#          'USER': 'admin',
-#          'PASSWORD': 'admin123',
-#          'HOST': 'aai6mtfsgyyo4p.cxgry479qrcw.us-east-2.rds.amazonaws.com',
-#          'PORT': '3306',
-#      }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ebdb',
+        'USER': 'admin',
+        'PASSWORD': 'admin123',
+        'HOST': 'aautn4qp8xas2i.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
 
 }
 
@@ -144,5 +144,4 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-LOGIN_REDIRECT_URL = 'index';
-
+LOGIN_REDIRECT_URL = 'index'
