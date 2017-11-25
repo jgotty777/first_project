@@ -26,7 +26,7 @@ SECRET_KEY = 't(g%l+huq5-z4k4shpe$79pleb&w2$%u5btam8@vzb!0a3f%v3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['survey-env-1.36yzjcfypj.us-east-1.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = ['survey-env.36yzjcfypj.us-east-1.elasticbeanstalk.com', '127.0.0.1']
 
 # Application definition
 
@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'ebdb',
         'USER': 'admin',
         'PASSWORD': 'admin123',
-        'HOST': 'aa1ogzn36x2519d.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
+        'HOST': 'aa1g2y1inzmvb4a.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 
