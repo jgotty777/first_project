@@ -12,7 +12,6 @@ docutils==0.14
 futures==3.1.1
 jmespath==0.9.3
 https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
-MySQL-python==1.2.5
 pathspec==0.5.0
 PyMySQL==0.7.11
 python-dateutil==2.6.1
