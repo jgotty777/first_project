@@ -1,20 +1,12 @@
 branch-defaults:
-  default:
-    environment: Survey-env
-    group_suffix: null
   master:
-    environment: Survey-env
-    group_suffix: null
+    environment: survey2-env
 environment-defaults:
-  Survey-env:
-    branch: null
-    repository: null
-  testEnv3:
+  survey2-env:
     branch: null
     repository: null
 global:
-  application_name: survey
-  branch: null
+  application_name: survey2
   default_ec2_keyname: null
   default_platform: Python 2.7
   default_region: us-east-1
@@ -23,6 +15,5 @@ global:
   platform_name: null
   platform_version: null
   profile: eb-cli
-  repository: null
   sc: git
   workspace_type: Application
