@@ -24,7 +24,7 @@ STATIC_DIR = os.path.join(BASE_DIR, "static")
 SECRET_KEY = 't(g%l+huq5-z4k4shpe$79pleb&w2$%u5btam8@vzb!0a3f%v3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['survey2-env.juunx3mees.us-east-1.elasticbeanstalk.com', '127.0.0.1']
 
