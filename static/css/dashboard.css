@@ -94,3 +94,7 @@ h1, h2 {
     margin: 0px;
 }
 
+#bss-nav, #bh-nav, #emerg-nav, #matern-nav, #ortho-nav {
+  display: none;
+}
+
