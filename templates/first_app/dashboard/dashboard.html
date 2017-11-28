@@ -6,21 +6,54 @@
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+      <script type="text/javascript">
+      function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+      }
+    </script>
   </head>
   <body>
     <header>
-      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
-      <h2>Dashboard</h2>
-      <ul>
-        <li><h4>Brain, Stroke, & Spine<h4></li>
-        <li><h4>Breast Health</h4></li>
-        <li><h4>Emergency</h4></li>
-        <li><h4>Maternity</h4></li>
-        <li><h4>Orthopedics</h4></li>
-      </ul>
+        <div class="headerItems">
+            <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo"/>
+            <h1>Welcome to the Kettering Medical Network Admin Portal!</h1>
+        </div>
     </header>
     <main>
-      <h3>Welcome to the Kettering Medical Network Admin Portal!</h3>
+      <div class="bss">
+        <a href="#" onclick="toggle_visibility('bss-nav');"><h2>Brain, Stroke, & Spine</h2></a>
+        <div id="bss-nav">
+          <h3>BSS GRAPHS GO HERE</h3>
+        </div>
+      </div>
+      <div class="breastHealth">
+        <a href="#" onclick="toggle_visibility('bh-nav');"><h2>Breast Health</h2></a>
+        <div id="bh-nav">
+          <h3>BREAST HEALTH GRAPHS GO HERE</h3>
+        </div>
+      </div>
+      <div class="emergency">
+        <a href="#" onclick="toggle_visibility('emerg-nav');"><h2>Emergency</h2></a>
+        <div id="emerg-nav">
+          <h3>EMERGENCY GRAPHS GO HERE</h3>
+        </div>
+      </div>
+      <div class="maternity">
+        <a href="#" onclick="toggle_visibility('matern-nav');"><h2>Maternity</h2></a>
+        <div id="matern-nav">
+          <h3>MATERNITY GRAPHS GO HERE</h3>
+        </div>
+      </div>
+      <div class="ortho">
+        <a href="#" onclick="toggle_visibility('ortho-nav');"><h2>Orthopedics</h2></a>
+        <div id="ortho-nav">
+          <h3>ORTHOPEDICS GRAPHS GO HERE</h3>
+        </div>
+      </div>
     </main>
   </body>
 </html>

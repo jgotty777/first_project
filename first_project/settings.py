@@ -78,14 +78,14 @@ DATABASES = {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'mydb',
-    #     'USER': 'root',
-    #     'PASSWORD': 'icicle10',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'icicle10',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
     # 'default': {
     #      'ENGINE': 'django.db.backends.mysql',
     #      'NAME': 'testdb',
@@ -94,14 +94,14 @@ DATABASES = {
     #      'HOST': 'localhost',
     #      'PORT': '3306',
     #  }
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ebdb',
-        'USER': 'admin',
-        'PASSWORD': 'admin123',
-        'HOST': 'aa1e1bp4h0n8sh2.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'ebdb',
+    #     'USER': 'admin',
+    #     'PASSWORD': 'admin123',
+    #     'HOST': 'aa1e1bp4h0n8sh2.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
+    #     'PORT': '3306',
+    # }
 
 }
 

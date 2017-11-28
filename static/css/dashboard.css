@@ -1,39 +1,96 @@
-header {
-  float: left;
-  /*padding: 25px 25px;*/
-  margin-right: 2%;
-  background-color: rgb(252, 243, 235);
-  width: 200px;
-  height: auto;
+header{
+    background-image: url("{% static 'images/dashboardHeader.jpg' %}");
+    background-size: 50% 120%;
+    background-repeat: no-repeat;
+    border-bottom: solid rgb(0, 102, 102);
 }
 
-header img{
-    display: block;
-    margin: auto;
+h1, h2 {
+    margin: 16px 0 12px 0;
+    font-weight: normal;
+    color: #444;
+    text-rendering: optimizelegibility;
 }
 
-header h2{
+.headerItems{
+    text-align: center;
+    padding: 10px 0px;
+    background-color: rgba(252, 243, 235, 0.5);
+}
+
+.headerItems img{
+  width: 10%;
+}
+
+.headerItems h1{
+    line-height: 40px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 26px;
+}
+
+.surveyList {
+  padding-left: 0;
   text-align: center;
-  margin: 5% auto;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-header ul{
-  list-style: none; 
-  padding-left: 0%;
+.surveyList li{
+  list-style-type: none;
+  /*background-color: rgb(0, 102, 102);
+  padding: 5px 0px;*/
 }
 
-header ul, li {
-  text-align: center;
-  padding: 2% 0%;
+.bss h2{
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(0, 102, 102);
+    padding: 10px 0px;
+    text-align: center;
+    margin: 0px;
 }
 
-header ul li:hover{
-  background-color: rgb(0, 102, 102);
-  color: white;
-  width: 200px;
+.breastHealth h2{
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(0, 102, 102);
+    padding: 10px 0px;
+    text-align: center;
+    margin: 0px;
 }
 
-main {
-  background-color: white;
-  }
+.emergency h2{
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(0, 102, 102);
+    padding: 10px 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+.maternity h2{
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(0, 102, 102);
+    padding: 10px 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+.ortho h2{
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(0, 102, 102);
+    padding: 10px 0px;
+    text-align: center;
+    margin: 0px;
+}
+
