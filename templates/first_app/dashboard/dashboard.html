@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-  <head>
+<head>
     <title>Dashboard</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-      <script type="text/javascript">
+    <script type="text/javascript">
       function toggle_visibility(id) {
         var e = document.getElementById(id);
         if(e.style.display == 'block')
@@ -14,46 +15,181 @@
         else
             e.style.display = 'block';
       }
+
+
     </script>
-  </head>
-  <body>
-    <header>
-        <div class="headerItems">
-            <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo"/>
-            <h1>Welcome to the Kettering Medical Network Admin Portal!</h1>
-        </div>
-    </header>
-    <main>
-      <div class="bss">
+</head>
+<body>
+<header>
+    <div class="headerItems">
+        <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png"
+             alt="Kettering Health Logo"/>
+        <h1>Welcome to the Kettering Medical Network Admin Portal!</h1>
+    </div>
+</header>
+<main>
+    <div class="bss">
         <a href="#" onclick="toggle_visibility('bss-nav');"><h2>Brain, Stroke, & Spine</h2></a>
         <div id="bss-nav">
-          <h3>BSS GRAPHS GO HERE</h3>
+            <h3>BSS GRAPHS GO HERE</h3>
+            {% if bsss %}
+            <b>Condition</b>
+            {% for entry, value in bsss.condition.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Service</b>
+            {% for entry, value in bsss.service.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Quality</b>
+            {% for entry, value in bsss.quality.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Support</b>
+            {% for entry, value in bsss.support.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Change</b>
+            {% for entry, value in bsss.change.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Comments</b>
+            {% for entry in bsss.comments %}
+            <p>{{ entry }}</p>
+            {% endfor %}
+            {% else %}
+            <b>No results available.</b>
+            {% endif %}
         </div>
-      </div>
-      <div class="breastHealth">
+    </div>
+    <div class="breastHealth">
         <a href="#" onclick="toggle_visibility('bh-nav');"><h2>Breast Health</h2></a>
         <div id="bh-nav">
-          <h3>BREAST HEALTH GRAPHS GO HERE</h3>
+            <h3>BREAST HEALTH GRAPHS GO HERE</h3>
+            {% if bhs %}
+            <b>Center</b>
+            {% for entry, value in bhs.center.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Mammogram</b>
+            {% for entry, value in bhs.mammogram.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Quality</b>
+            {% for entry, value in bhs.quality.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Support</b>
+            {% for entry, value in bhs.support.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Procedure</b>
+            {% for entry, value in bhs.procedure.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Comments</b>
+            {% for entry in bhs.comments %}
+            <p>{{ entry }}</p>
+            {% endfor %}
+            {% else %}
+            <b>No results available.</b>
+            {% endif %}
         </div>
-      </div>
-      <div class="emergency">
+    </div>
+    <div class="emergency">
         <a href="#" onclick="toggle_visibility('emerg-nav');"><h2>Emergency</h2></a>
         <div id="emerg-nav">
-          <h3>EMERGENCY GRAPHS GO HERE</h3>
+            <h3>EMERGENCY GRAPHS GO HERE</h3>
+            {% if es %}
+            <b>Condition</b>
+            {% for entry, value in es.condition.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Careflight</b>
+            {% for entry, value in es.careflight.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Quality</b>
+            {% for entry, value in es.quality.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Location</b>
+            {% for entry, value in es.location.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Comments</b>
+            {% for entry in es.comments %}
+            <p>{{ entry }}</p>
+            {% endfor %}
+            {% else %}
+            <b>No results available.</b>
+            {% endif %}
         </div>
-      </div>
-      <div class="maternity">
+    </div>
+    <div class="maternity">
         <a href="#" onclick="toggle_visibility('matern-nav');"><h2>Maternity</h2></a>
         <div id="matern-nav">
-          <h3>MATERNITY GRAPHS GO HERE</h3>
+            <h3>MATERNITY GRAPHS GO HERE</h3>
+            {% if ms %}
+            <b>Frequency</b>
+            {% for entry, value in ms.frequency.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Health</b>
+            {% for entry, value in ms.health.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Quality</b>
+            {% for entry, value in ms.quality.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>NICU</b>
+            {% for entry, value in ms.nuci.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Reason</b>
+            {% for entry, value in ms.reason.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Comments</b>
+            {% for entry in ms.comments %}
+            <p>{{ entry }}</p>
+            {% endfor %}
+            {% else %}
+            <b>No results available.</b>
+            {% endif %}
         </div>
-      </div>
-      <div class="ortho">
+    </div>
+    <div class="ortho">
         <a href="#" onclick="toggle_visibility('ortho-nav');"><h2>Orthopedics</h2></a>
         <div id="ortho-nav">
-          <h3>ORTHOPEDICS GRAPHS GO HERE</h3>
+            <h3>ORTHOPEDICS GRAPHS GO HERE</h3>
+            {% if os %}
+            <b>Condition</b>
+            {% for entry, value in os.condition.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Service</b>
+            {% for entry, value in os.treatment.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Quality</b>
+            {% for entry, value in os.quality.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Support</b>
+            {% for entry, value in os.location.items %}
+            <p>{{entry}}: {{value}}</p>
+            {% endfor %}
+            <b>Comments</b>
+            {% for entry in os.comments %}
+            <p>{{ entry }}</p>
+            {% endfor %}
+            {% else %}
+            <b>No results available.</b>
+            {% endif %}
         </div>
-      </div>
-    </main>
-  </body>
+    </div>
+</main>
+</body>
 </html>
