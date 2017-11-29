@@ -43,15 +43,16 @@ def orthopedicsSurvey(request):
 
 # Create submit views here
 def matSubmit(request):
-    user_id = request.GET.get('user')
-    pat = User.objects.get(pk=user_id)
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    pat = User.objects.get(pk=user_survey.patient_id)
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
     heal = request.POST.get('babyHealth')
     nic = request.POST.get('nicu')
     reas = request.POST.get('nicuCondition')
     comm = request.POST.get('comments')
-    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
+    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -64,15 +65,16 @@ def matSubmit(request):
 
 
 def bssSubmit(request):
-    user_id = request.GET.get('user')
-    pat = User.objects.get(pk=user_id)
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    pat = User.objects.get(pk=user_survey.patient_id)
     cond = request.POST.get('bssCondition')
     serv = request.POST.get('bssServices')
     qual = request.POST.get('bssQuality')
     sup = request.POST.get('bssSupportGroup')
     condchange = request.POST.get('bssConditionChange')
     comm = request.POST.get('comments')
-    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
+    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -85,15 +87,16 @@ def bssSubmit(request):
 
 
 def brSubmit(request):
-    user_id = request.GET.get('user')
-    pat = User.objects.get(pk=user_id)
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    pat = User.objects.get(pk=user_survey.patient_id)
     cent = request.POST.get('breastCenter')
     proc = request.POST.get('breastProcedure')
     mamm = request.POST.get('breastMammogram')
     qual = request.POST.get('breastQuality')
     sup = request.POST.get('breastSupportGroup')
     comm = request.POST.get('comments')
-    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
+    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -106,14 +109,15 @@ def brSubmit(request):
 
 
 def emergSubmit(request):
-    user_id = request.GET.get('user')
-    pat = User.objects.get(pk=user_id)
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    pat = User.objects.get(pk=user_survey.patient_id)
     cond = request.POST.get('emergCondition')
     cf = request.POST.get('emergCareFlight')
     local = request.POST.get('emergLocal')
     qual = request.POST.get('emergQuality')
     comm = request.POST.get('comments')
-    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
+    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -125,14 +129,15 @@ def emergSubmit(request):
 
 
 def orthoSubmit(request):
-    user_id = request.GET.get('user')
-    pat = User.objects.get(pk=user_id)
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    pat = User.objects.get(pk=user_survey.patient_id)
     cond = request.POST.get('orthoCondition')
     treat = request.POST.get('orthoTreatment')
     local = request.POST.get('orthoLocal')
     qual = request.POST.get('orthoQuality')
     comm = request.POST.get('comments')
-    user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
+    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -174,8 +179,10 @@ def login_submit(request):
                     'quality': {},
                     'support': {},
                     'change': {},
-                    'comments': []
+                    'comments': [],
+                    'total': 0
                 }
+                total = 0
                 for bss in bsss:
                     if not bss.condition in my_dict['bsss']['condition']:
                         my_dict['bsss']['condition'][bss.condition] = 0
@@ -194,6 +201,18 @@ def login_submit(request):
                     my_dict['bsss']['change'][bss.change] += 1
                     if bss.comments:
                         my_dict['bsss']['comments'].append(bss.comments)
+                    total += 1
+                my_dict['bsss']['total'] = total
+                for k, v in my_dict['bsss']['condition'].items():
+                    my_dict['bsss']['condition'][k] = (v/float(my_dict['bsss']['total']))*100
+                for k, v in my_dict['bsss']['service'].items():
+                    my_dict['bsss']['service'][k] = (v/float(my_dict['bsss']['total']))*100
+                for k, v in my_dict['bsss']['quality'].items():
+                    my_dict['bsss']['quality'][k] = (v/float(my_dict['bsss']['total']))*100
+                for k, v in my_dict['bsss']['support'].items():
+                    my_dict['bsss']['support'][k] = (v/float(my_dict['bsss']['total']))*100
+                for k, v in my_dict['bsss']['change'].items():
+                    my_dict['bsss']['change'][k] = (v/float(my_dict['bsss']['total']))*100
 
             bhs = BreastHealth.objects.all()
             if bhs:
@@ -203,8 +222,10 @@ def login_submit(request):
                     'mammogram': {},
                     'quality': {},
                     'support': {},
-                    'comments': []
+                    'comments': [],
+                    'total': 0
                 }
+                total = 0
                 for bh in bhs:
                     if not bh.center in my_dict['bhs']['center']:
                         my_dict['bhs']['center'][bh.center] = 0
@@ -223,6 +244,18 @@ def login_submit(request):
                     my_dict['bhs']['procedure'][bh.procedure] += 1
                     if bh.comments:
                         my_dict['bhs']['comments'].append(bh.comments)
+                    total += 1
+                my_dict['bhs']['total'] = total
+                for k, v in my_dict['bhs']['center'].items():
+                    my_dict['bhs']['center'][k] = (v/float(my_dict['bhs']['total']))*100
+                for k, v in my_dict['bhs']['procedure'].items():
+                    my_dict['bhs']['procedure'][k] = (v/float(my_dict['bhs']['total']))*100
+                for k, v in my_dict['bhs']['quality'].items():
+                    my_dict['bhs']['quality'][k] = (v/float(my_dict['bhs']['total']))*100
+                for k, v in my_dict['bhs']['support'].items():
+                    my_dict['bhs']['support'][k] = (v/float(my_dict['bhs']['total']))*100
+                for k, v in my_dict['bhs']['mammogram'].items():
+                    my_dict['bhs']['mammogram'][k] = (v/float(my_dict['bhs']['total']))*100
 
             es = Emergency.objects.all()
 
@@ -232,8 +265,10 @@ def login_submit(request):
                     'careflight': {},
                     'location': {},
                     'quality': {},
-                    'comments': []
+                    'comments': [],
+                    'total': 0
                 }
+                total = 0
                 for e in es:
                     if not e.condition in my_dict['es']['condition']:
                         my_dict['es']['condition'][e.condition] = 0
@@ -249,6 +284,16 @@ def login_submit(request):
                     my_dict['es']['location'][e.location] += 1
                     if e.comments:
                         my_dict['es']['comments'].append(e.comments)
+                    total += 1
+                my_dict['es']['total'] = total
+                for k, v in my_dict['es']['condition'].items():
+                    my_dict['es']['condition'][k] = (v/float(my_dict['es']['total']))*100
+                for k, v in my_dict['es']['careflight'].items():
+                    my_dict['es']['careflight'][k] = (v/float(my_dict['es']['total']))*100
+                for k, v in my_dict['es']['quality'].items():
+                    my_dict['es']['quality'][k] = (v/float(my_dict['es']['total']))*100
+                for k, v in my_dict['es']['location'].items():
+                    my_dict['es']['location'][k] = (v/float(my_dict['es']['total']))*100
 
             ms = Maternity.objects.all()
 
@@ -259,8 +304,10 @@ def login_submit(request):
                     'health': {},
                     'nicu': {},
                     'reason': {},
-                    'comments': []
+                    'comments': [],
+                    'total': 0
                 }
+                total = 0
                 for m in ms:
                     if not m.frequency in my_dict['ms']['frequency']:
                         my_dict['ms']['frequency'][m.frequency] = 0
@@ -279,6 +326,18 @@ def login_submit(request):
                     my_dict['ms']['reason'][m.reason] += 1
                     if m.comments:
                         my_dict['ms']['comments'].append(m.comments)
+                    total += 1
+                my_dict['ms']['total'] = total
+                for k, v in my_dict['ms']['frequency'].items():
+                    my_dict['ms']['frequency'][k] = (v/float(my_dict['ms']['total']))*100
+                for k, v in my_dict['ms']['health'].items():
+                    my_dict['ms']['health'][k] = (v/float(my_dict['ms']['total']))*100
+                for k, v in my_dict['ms']['quality'].items():
+                    my_dict['ms']['quality'][k] = (v/float(my_dict['ms']['total']))*100
+                for k, v in my_dict['ms']['nicu'].items():
+                    my_dict['ms']['nicu'][k] = (v/float(my_dict['ms']['total']))*100
+                for k, v in my_dict['ms']['reason'].items():
+                    my_dict['ms']['reason'][k] = (v/float(my_dict['ms']['total']))*100
 
             os = Orthopedics.objects.all()
             if os:
@@ -289,6 +348,7 @@ def login_submit(request):
                     'quality': {},
                     'comments': []
                 }
+                total = 0
                 for o in os:
                     if not o.condition in my_dict['os']['condition']:
                         my_dict['os']['condition'][o.condition] = 0
@@ -304,6 +364,16 @@ def login_submit(request):
                     my_dict['os']['location'][o.location] += 1
                     if o.comments:
                         my_dict['os']['comments'].append(o.comments)
+                    total += 1
+                my_dict['os']['total'] = total
+                for k, v in my_dict['os']['condition'].items():
+                    my_dict['os']['condition'][k] = (v/float(my_dict['os']['total']))*100
+                for k, v in my_dict['os']['treatment'].items():
+                    my_dict['os']['treatment'][k] = (v/float(my_dict['os']['total']))*100
+                for k, v in my_dict['os']['quality'].items():
+                    my_dict['os']['quality'][k] = (v/float(my_dict['os']['total']))*100
+                for k, v in my_dict['os']['location'].items():
+                    my_dict['os']['location'][k] = (v/float(my_dict['os']['total']))*100
 
             return render(request, 'first_app/dashboard/dashboard.html', context=my_dict)
     else:

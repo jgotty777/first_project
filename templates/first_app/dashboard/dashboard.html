@@ -17,6 +17,8 @@
       }
 
 
+
+
     </script>
 </head>
 <body>
@@ -31,28 +33,78 @@
     <div class="bss">
         <a href="#" onclick="toggle_visibility('bss-nav');"><h2>Brain, Stroke, & Spine</h2></a>
         <div id="bss-nav">
-            <h3>BSS GRAPHS GO HERE</h3>
             {% if bsss %}
-            <b>Condition</b>
-            {% for entry, value in bsss.condition.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Service</b>
-            {% for entry, value in bsss.service.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Quality</b>
-            {% for entry, value in bsss.quality.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Support</b>
-            {% for entry, value in bsss.support.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Change</b>
-            {% for entry, value in bsss.change.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which condition applies to you for visiting our facility?
+                </div>
+                {% for entry, value in bsss.condition.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which of our centers in the NeuroScience Institute did you visit?
+                </div>
+                {% for entry, value in bsss.service.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                </div>
+                {% for entry, value in bsss.quality.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Please indicate which of our support groups you may be intersted in attending, if any:
+                </div>
+                {% for entry, value in bsss.support.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    How has your condition changed overall since your visit to our facility?
+                </div>
+                {% for entry, value in bsss.change.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <b>Comments</b>
             {% for entry in bsss.comments %}
             <p>{{ entry }}</p>
@@ -65,28 +117,78 @@
     <div class="breastHealth">
         <a href="#" onclick="toggle_visibility('bh-nav');"><h2>Breast Health</h2></a>
         <div id="bh-nav">
-            <h3>BREAST HEALTH GRAPHS GO HERE</h3>
             {% if bhs %}
-            <b>Center</b>
-            {% for entry, value in bhs.center.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Mammogram</b>
-            {% for entry, value in bhs.mammogram.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Quality</b>
-            {% for entry, value in bhs.quality.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Support</b>
-            {% for entry, value in bhs.support.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Procedure</b>
-            {% for entry, value in bhs.procedure.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which of our Breast Evaluation Centers did you attend for your visit?
+                </div>
+                {% for entry, value in bhs.center.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    What procedure did you have completed during the visit?
+                </div>
+                {% for entry, value in bhs.procedure.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    How often do you get a mammogram?
+                </div>
+                {% for entry, value in bhs.mammogram.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                </div>
+                {% for entry, value in bhs.quality.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Please indicate which of our support groups you may be intersted in attending, if any:
+                </div>
+                {% for entry, value in bhs.support.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <b>Comments</b>
             {% for entry in bhs.comments %}
             <p>{{ entry }}</p>
@@ -99,24 +201,64 @@
     <div class="emergency">
         <a href="#" onclick="toggle_visibility('emerg-nav');"><h2>Emergency</h2></a>
         <div id="emerg-nav">
-            <h3>EMERGENCY GRAPHS GO HERE</h3>
             {% if es %}
-            <b>Condition</b>
-            {% for entry, value in es.condition.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Careflight</b>
-            {% for entry, value in es.careflight.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Quality</b>
-            {% for entry, value in es.quality.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Location</b>
-            {% for entry, value in es.location.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Please select the reason for your recent visit to the Emergency Room.
+                </div>
+                {% for entry, value in es.condition.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Was Careflight needed to transport you to one of our facilities?
+                </div>
+                {% for entry, value in es.careflight.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which location did you visit?
+                </div>
+                {% for entry, value in es.location.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                </div>
+                {% for entry, value in es.quality.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <b>Comments</b>
             {% for entry in es.comments %}
             <p>{{ entry }}</p>
@@ -129,28 +271,78 @@
     <div class="maternity">
         <a href="#" onclick="toggle_visibility('matern-nav');"><h2>Maternity</h2></a>
         <div id="matern-nav">
-            <h3>MATERNITY GRAPHS GO HERE</h3>
             {% if ms %}
-            <b>Frequency</b>
-            {% for entry, value in ms.frequency.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Health</b>
-            {% for entry, value in ms.health.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Quality</b>
-            {% for entry, value in ms.quality.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>NICU</b>
-            {% for entry, value in ms.nuci.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Reason</b>
-            {% for entry, value in ms.reason.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Please rate the overall quality of the Labor & Delivery Suite:
+                </div>
+                {% for entry, value in ms.quality.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    On average, about how often dname the nurse on duty check on the patient(s)?
+                </div>
+                {% for entry, value in ms.frequency.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    After being discharged, how is the overall health of your baby/babies?
+                </div>
+                {% for entry, value in ms.health.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in any way?
+                </div>
+                {% for entry, value in ms.nicu.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    If you answered yes in the previous question, what was the reason that your child was cared for in the NICU?
+                </div>
+                {% for entry, value in ms.reason.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <b>Comments</b>
             {% for entry in ms.comments %}
             <p>{{ entry }}</p>
@@ -163,24 +355,64 @@
     <div class="ortho">
         <a href="#" onclick="toggle_visibility('ortho-nav');"><h2>Orthopedics</h2></a>
         <div id="ortho-nav">
-            <h3>ORTHOPEDICS GRAPHS GO HERE</h3>
             {% if os %}
-            <b>Condition</b>
-            {% for entry, value in os.condition.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Service</b>
-            {% for entry, value in os.treatment.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Quality</b>
-            {% for entry, value in os.quality.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
-            <b>Support</b>
-            {% for entry, value in os.location.items %}
-            <p>{{entry}}: {{value}}</p>
-            {% endfor %}
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which condition applies to you for visiting our facility?
+                </div>
+                {% for entry, value in os.condition.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which of the following treatments were performed at your visit?
+                </div>
+                {% for entry, value in os.treatment.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    Which location did you visit?
+                </div>
+                {% for entry, value in os.location.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class='barcontainer'>
+                <div class='barcontainerheader'>
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                </div>
+                {% for entry, value in os.quality.items %}
+                <div class='bar' style='height:{{value}}%'>
+                    {{value}}
+                    <div class='barlabel'>
+                        {{entry}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <b>Comments</b>
             {% for entry in os.comments %}
             <p>{{ entry }}</p>
