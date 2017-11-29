@@ -51,13 +51,17 @@ def matSubmit(request):
     nic = request.POST.get('nicu')
     reas = request.POST.get('nicuCondition')
     comm = request.POST.get('comments')
-    saveObj = Maternity(patient_id=pat, quality=qual, frequency=freq, health=heal, nicu=nic, reason=reas, comments=comm)
-    saveObj.save()
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
-    user_survey.status = 1
-    user_survey.save()
+    if user_survey.status == 1:
+        # TODO send them to page that informs them this survey has already been completed
+        return render(request, 'first_app/surveys/submit.html')
+    else:
+        user_survey.status = 1
+        user_survey.save()
+        saveObj = Maternity(patient_id=pat, quality=qual, frequency=freq, health=heal, nicu=nic, reason=reas, comments=comm)
+        saveObj.save()
 
-    return render(request, 'first_app/surveys/submit.html')
+        return render(request, 'first_app/surveys/submit.html')
 
 
 def bssSubmit(request):
@@ -69,13 +73,17 @@ def bssSubmit(request):
     sup = request.POST.get('bssSupportGroup')
     condchange = request.POST.get('bssConditionChange')
     comm = request.POST.get('comments')
-    saveObj = BSS(patient_id=pat, condition=cond, service=serv, quality=qual, support=sup, change=condchange,
-                  comments=comm)
-    saveObj.save()
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
-    user_survey.status = 1
-    user_survey.save()
-    return render(request, 'first_app/surveys/submit.html')
+    if user_survey.status == 1:
+        # TODO send them to page that informs them this survey has already been completed
+        return render(request, 'first_app/surveys/submit.html')
+    else:
+        user_survey.status = 1
+        user_survey.save()
+        saveObj = BSS(patient_id=pat, condition=cond, service=serv, quality=qual, support=sup, change=condchange,
+                  comments=comm)
+        saveObj.save()
+        return render(request, 'first_app/surveys/submit.html')
 
 
 def brSubmit(request):
@@ -87,13 +95,17 @@ def brSubmit(request):
     qual = request.POST.get('breastQuality')
     sup = request.POST.get('breastSupportGroup')
     comm = request.POST.get('comments')
-    saveObj = BreastHealth(patient_id=pat, center=cent, procedure=proc, mammogram=mamm, quality=qual, support=sup,
-                           comments=comm)
-    saveObj.save()
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
-    user_survey.status = 1
-    user_survey.save()
-    return render(request, 'first_app/surveys/submit.html')
+    if user_survey.status == 1:
+        # TODO send them to page that informs them this survey has already been completed
+        return render(request, 'first_app/surveys/submit.html')
+    else:
+        user_survey.status = 1
+        user_survey.save()
+        saveObj = BreastHealth(patient_id=pat, center=cent, procedure=proc, mammogram=mamm, quality=qual, support=sup,
+                           comments=comm)
+        saveObj.save()
+        return render(request, 'first_app/surveys/submit.html')
 
 
 def emergSubmit(request):
@@ -104,12 +116,16 @@ def emergSubmit(request):
     local = request.POST.get('emergLocal')
     qual = request.POST.get('emergQuality')
     comm = request.POST.get('comments')
-    saveObj = Emergency(patient_id=pat, condition=cond, careflight=cf, location=local, quality=qual, comments=comm)
-    saveObj.save()
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
-    user_survey.status = 1
-    user_survey.save()
-    return render(request, 'first_app/surveys/submit.html')
+    if user_survey.status == 1:
+        # TODO send them to page that informs them this survey has already been completed
+        return render(request, 'first_app/surveys/submit.html')
+    else:
+        user_survey.status = 1
+        user_survey.save()
+        saveObj = Emergency(patient_id=pat, condition=cond, careflight=cf, location=local, quality=qual, comments=comm)
+        saveObj.save()
+        return render(request, 'first_app/surveys/submit.html')
 
 
 def orthoSubmit(request):
@@ -120,12 +136,16 @@ def orthoSubmit(request):
     local = request.POST.get('orthoLocal')
     qual = request.POST.get('orthoQuality')
     comm = request.POST.get('comments')
-    saveObj = Orthopedics(patient_id=pat, condition=cond, treatment=treat, location=local, quality=qual, comments=comm)
-    saveObj.save()
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
-    user_survey.status = 1
-    user_survey.save()
-    return render(request, 'first_app/surveys/submit.html')
+    if user_survey.status == 1:
+        # TODO send them to page that informs them this survey has already been completed
+        return render(request, 'first_app/surveys/submit.html')
+    else:
+        user_survey.status = 1
+        user_survey.save()
+        saveObj = Orthopedics(patient_id=pat, condition=cond, treatment=treat, location=local, quality=qual, comments=comm)
+        saveObj.save()
+        return render(request, 'first_app/surveys/submit.html')
 
 
 # Create Login views here
@@ -136,35 +156,18 @@ def login_submit(request):
     if user.password == passw:
         if user.admin == 0:
             surveys = User_Survey.objects.filter(patient_id=user, status=0)
-            # links = ''
             links = []
             for survey in surveys:
-                # links.append(survey.survey)
                 if survey.survey == "Maternity":
-                    # return render(request, 'first_app/surveys/maternitySurvey.html')
-                    # links += 'first_app/surveys/maternitySurvey.html, '
                     links.append('maternity')
                 elif survey.survey == "Brain":
-                    # return render(request, 'first_app/surveys/brain_spine_stroke.html')
-                    # links += 'first_app/surveys/brain_spine_stroke.html, '
                     links.append('brainSpine')
                 elif survey.survey == "Ortho":
-                    # return render(request, 'first_app/surveys/orthopedics.html')
-                    # links += 'first_app/surveys/orthopedics.html, '
                     links.append('orthopedics')
                 elif survey.survey == "Emergency":
-                    # return render(request, 'first_app/surveys/emergency.html')
-                    # links += 'first_app/surveys/emergency.html, '
                     links.append('emergency')
                 elif survey.survey == "Breast":
-                    # return render(request, 'first_app/surveys/breast_health.html
-                    # links += 'first_app/surveys/breast_health.html, '
                     links.append('breastHealth')
-                    # else:
-                    # return HttpResponse("No Survey Found")
-                    # links += survey.survey + ' has no link, '
-                    # links.append(survey.survey)
-            # return HttpResponse(links)
             return render(request, 'first_app/dashboard/patient_dashboard.html', {'user': user.pk, 'links': links})
         if user.admin == 1:
             my_dict = {}
@@ -308,7 +311,6 @@ def login_submit(request):
                         my_dict['os']['comments'].append(o.comments)
 
             return render(request, 'first_app/dashboard/dashboard.html', context=my_dict)
-            # return render(request, 'first_app/dashboard/dashboard.html')
     else:
         return HttpResponse("Username or Password is incorrect")
 
@@ -319,143 +321,4 @@ def logout(request):
 
 # Create dashboard here
 def dashboard(request):
-    my_dict = {
-        'bsss': {
-            'condition': {},
-            'service': {},
-            'quality': {},
-            'support': {},
-            'change': {},
-            'comments': []
-        },
-        'bhs': {
-            'center': {},
-            'procedure': {},
-            'mammogram': {},
-            'quality': {},
-            'support': {},
-            'comments': []
-        },
-        'es': {
-            'condition': {},
-            'careflight': {},
-            'location': {},
-            'quality': {},
-            'comments': []
-        },
-        'ms': {
-            'quality': {},
-            'frequency': {},
-            'health': {},
-            'nicu': {},
-            'reason': {},
-            'comments': {}
-        },
-        'os': {
-            'condition': {},
-            'treatment': {},
-            'location': {},
-            'quality': {},
-            'comments': []
-        }
-    }
-    bsss = BSS.objects.all()
-
-    for bss in bsss:
-        if not my_dict.bsss.condition[bss.condition]:
-            my_dict.bsss.condition[bss.condition] = 0
-        my_dict.bsss.condition[bss.condition] += 1
-        if not my_dict.bsss.service[bss.service]:
-            my_dict.bsss.service[bss.service] = 0
-        my_dict.bsss.service[bss.service] += 1
-        if not my_dict.bsss.quality[bss.quality]:
-            my_dict['bsss']['quality'][bss.quality] = 0
-        my_dict['bsss']['quality'][bss.quality] += 1
-        if not my_dict['bsss']['support'][bss.support]:
-            my_dict['bsss']['support'][bss.support] = 0
-        my_dict['bsss']['support'][bss.support] += 1
-        if not my_dict['bsss']['change'][bss.change]:
-            my_dict['bsss']['change'][bss.change] = 0
-        my_dict['bsss']['change'][bss.change] += 1
-        if bss.comments:
-            my_dict['bsss']['comments'].append(bss.comments)
-
-    bhs = BreastHealth.objects.all()
-
-    for bh in bhs:
-        if not my_dict['bhs']['center'][bh.center]:
-            my_dict['bhs']['center'][bh.center] = 0
-        my_dict['bhs']['center'][bh.center] += 1
-        if not my_dict['bhs']['mammogram'][bh.mammogram]:
-            my_dict['bhs']['mammogram'][bh.mammogram] = 0
-        my_dict['bhs']['mammogram'][bh.mammogram] += 1
-        if not my_dict['bhs']['quality'][bh.quality]:
-            my_dict['bhs']['quality'][bh.quality] = 0
-        my_dict['bhs']['quality'][bh.quality] += 1
-        if not my_dict['bhs']['support'][bh.support]:
-            my_dict['bhs']['support'][bh.support] = 0
-        my_dict['bhs']['support'][bh.support] += 1
-        if not my_dict['bhs']['procedure'][bh.procedure]:
-            my_dict['bhs']['procedure'][bh.procedure] = 0
-        my_dict['bhs']['procedure'][bh.procedure] += 1
-        if bh.comments:
-            my_dict['bhs']['comments'].append(bh.comments)
-
-    es = Emergency.objects.all()
-
-    for e in es:
-        if not my_dict['es']['condition'][e.condition]:
-            my_dict['es']['condition'][e.condition] = 0
-        my_dict['es']['condition'][e.condition] += 1
-        if not my_dict['es']['careflight'][e.careflight]:
-            my_dict['es']['careflight'][e.careflight] = 0
-        my_dict['es']['careflight'][e.careflight] += 1
-        if not my_dict['es']['quality'][e.quality]:
-            my_dict['es']['quality'][e.quality] = 0
-        my_dict['es']['quality'][e.quality] += 1
-        if not my_dict['es']['location'][e.location]:
-            my_dict['es']['location'][e.location] = 0
-        my_dict['es']['location'][e.location] += 1
-        if e.comments:
-            my_dict['es']['comments'].append(e.comments)
-
-    ms = Maternity.objects.all()
-
-    for m in ms:
-        if not my_dict['ms']['frequency'][m.frequency]:
-            my_dict['ms']['frequency'][m.frequency] = 0
-        my_dict['ms']['frequency'][m.frequency] += 1
-        if not my_dict['ms']['health'][m.health]:
-            my_dict['ms']['health'][m.health] = 0
-        my_dict['ms']['health'][m.health] += 1
-        if not my_dict['ms']['quality'][m.quality]:
-            my_dict['ms']['quality'][m.quality] = 0
-        my_dict['ms']['quality'][m.quality] += 1
-        if not my_dict['ms']['nicu'][m.nicu]:
-            my_dict['ms']['nicu'][m.nicu] = 0
-        my_dict['ms']['nicu'][m.nicu] += 1
-        if not my_dict['ms']['reason'][m.reason]:
-            my_dict['ms']['reason'][m.reason] = 0
-        my_dict['ms']['reason'][m.reason] += 1
-        if m.comments:
-            my_dict['ms']['comments'].append(m.comments)
-
-    os = Orthopedics.objects.all()
-
-    for o in os:
-        if not my_dict['os']['condition'][o.condition]:
-            my_dict['os']['condition'][o.condition] = 0
-        my_dict['os']['condition'][o.condition] += 1
-        if not my_dict['os']['treatment'][o.treatment]:
-            my_dict['os']['treatment'][o.treatment] = 0
-        my_dict['os']['treatment'][o.treatment] += 1
-        if not my_dict['os']['quality'][o.quality]:
-            my_dict['os']['quality'][o.quality] = 0
-        my_dict['os']['quality'][o.quality] += 1
-        if not my_dict['os']['location'][o.location]:
-            my_dict['os']['location'][o.location] = 0
-        my_dict['os']['location'][o.location] += 1
-        if o.comments:
-            my_dict['os']['comments'].append(o.comments)
-
-    return render(request, 'first_app/dashboard/dashboard.html', context=my_dict)
+    return render(request, 'first_app/dashboard/dashboard.html')
