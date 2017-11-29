@@ -53,8 +53,7 @@ def matSubmit(request):
     comm = request.POST.get('comments')
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
     if user_survey.status == 1:
-        # TODO send them to page that informs them this survey has already been completed
-        return render(request, 'first_app/surveys/submit.html')
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
         user_survey.status = 1
         user_survey.save()
@@ -75,8 +74,7 @@ def bssSubmit(request):
     comm = request.POST.get('comments')
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
     if user_survey.status == 1:
-        # TODO send them to page that informs them this survey has already been completed
-        return render(request, 'first_app/surveys/submit.html')
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
         user_survey.status = 1
         user_survey.save()
@@ -97,8 +95,7 @@ def brSubmit(request):
     comm = request.POST.get('comments')
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
     if user_survey.status == 1:
-        # TODO send them to page that informs them this survey has already been completed
-        return render(request, 'first_app/surveys/submit.html')
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
         user_survey.status = 1
         user_survey.save()
@@ -118,8 +115,7 @@ def emergSubmit(request):
     comm = request.POST.get('comments')
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
     if user_survey.status == 1:
-        # TODO send them to page that informs them this survey has already been completed
-        return render(request, 'first_app/surveys/submit.html')
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
         user_survey.status = 1
         user_survey.save()
@@ -138,8 +134,7 @@ def orthoSubmit(request):
     comm = request.POST.get('comments')
     user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
     if user_survey.status == 1:
-        # TODO send them to page that informs them this survey has already been completed
-        return render(request, 'first_app/surveys/submit.html')
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
         user_survey.status = 1
         user_survey.save()
