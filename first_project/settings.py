@@ -86,22 +86,22 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '3306',
     # }
-    'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'testdb',
-         'USER': 'root',
-         'PASSWORD': 'root',
-         'HOST': 'localhost',
-         'PORT': '3306',
-     }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'ebdb',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'admin123',
-    #     'HOST': 'aa1e1bp4h0n8sh2.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
-    #     'PORT': '3306',
-    # }
+    #      'ENGINE': 'django.db.backends.mysql',
+    #      'NAME': 'testdb',
+    #      'USER': 'root',
+    #      'PASSWORD': 'root',
+    #      'HOST': 'localhost',
+    #      'PORT': '3306',
+    #  }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ebdb',
+        'USER': 'admin',
+        'PASSWORD': 'admin123',
+        'HOST': 'aa1e1bp4h0n8sh2.cz3dwchxmqty.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
 
 }
 
