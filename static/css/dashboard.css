@@ -1,5 +1,5 @@
 header{
-    background-image: url("{% static 'images/dashboardHeader.jpg' %}");
+    background-image: url('../images/dashboardHeader.jpg');
     background-size: 50% 120%;
     background-repeat: no-repeat;
     border-bottom: solid rgb(0, 102, 102);
@@ -100,7 +100,7 @@ h1, h2 {
 
 .barcontainer {
   position: relative;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 102, 102);
   border-radius: 5px 5px 0 0;
   width: 80%;
   margin: 10px auto;
