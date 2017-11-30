@@ -101,7 +101,7 @@ h1, h2 {
 .barcontainer {
   position: relative;
   border: 1px solid rgb(0, 102, 102);
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   width: 80%;
   margin: 10px auto;
   min-height: 15vw;
@@ -118,7 +118,7 @@ h1, h2 {
   padding-top: 3px;
   padding-bottom: 3px;
   background: rgb(0, 102, 102);
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(0, 102, 102);
   font-size: 1em;
   color: white;
   text-align: center;
@@ -137,9 +137,8 @@ h1, h2 {
   position: absolute;
   display: inline-block;
   bottom: 0;
-  border: 1px solid black;
   border-radius: 6px 6px 0 0;
-  background: rgb(0, 102, 102);
+  background: #696;
   width: 10%;
   text-align: center;
   color: white;
@@ -149,12 +148,12 @@ h1, h2 {
 
 .barlabel {
   position: absolute;
-  border-top: 1px solid black;
-  background: #888;
+  border: 1px solid rgb(242, 212, 186);
+  background: rgb(252, 243, 235);
   bottom: 0;
   width: 100%;
   text-shadow: 0px 0px 0px black;
-  color: white;
+  color: #444;
 }
 
 .bar:nth-child(1) {
