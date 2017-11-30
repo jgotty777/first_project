@@ -45,7 +45,7 @@ def orthopedicsSurvey(request):
 def matSubmit(request):
     user_survey_id = request.GET.get('uid')
     user_survey = User_Survey.objects.get(pk=user_survey_id)
-    pat = User.objects.get(pk=user_survey.patient_id)
+    pat = user_survey.patient_id
     qual = request.POST.get('deliverySuite')
     freq = request.POST.get('nurse')
     heal = request.POST.get('babyHealth')
@@ -67,7 +67,7 @@ def matSubmit(request):
 def bssSubmit(request):
     user_survey_id = request.GET.get('uid')
     user_survey = User_Survey.objects.get(pk=user_survey_id)
-    pat = User.objects.get(pk=user_survey.patient_id)
+    pat = user_survey.patient_id
     cond = request.POST.get('bssCondition')
     serv = request.POST.get('bssServices')
     qual = request.POST.get('bssQuality')
@@ -89,7 +89,7 @@ def bssSubmit(request):
 def brSubmit(request):
     user_survey_id = request.GET.get('uid')
     user_survey = User_Survey.objects.get(pk=user_survey_id)
-    pat = User.objects.get(pk=user_survey.patient_id)
+    pat = user_survey.patient_id
     cent = request.POST.get('breastCenter')
     proc = request.POST.get('breastProcedure')
     mamm = request.POST.get('breastMammogram')
@@ -111,7 +111,7 @@ def brSubmit(request):
 def emergSubmit(request):
     user_survey_id = request.GET.get('uid')
     user_survey = User_Survey.objects.get(pk=user_survey_id)
-    pat = User.objects.get(pk=user_survey.patient_id)
+    pat = user_survey.patient_id
     cond = request.POST.get('emergCondition')
     cf = request.POST.get('emergCareFlight')
     local = request.POST.get('emergLocal')
@@ -131,7 +131,7 @@ def emergSubmit(request):
 def orthoSubmit(request):
     user_survey_id = request.GET.get('uid')
     user_survey = User_Survey.objects.get(pk=user_survey_id)
-    pat = User.objects.get(pk=user_survey.patient_id)
+    pat = user_survey.patient_id
     cond = request.POST.get('orthoCondition')
     treat = request.POST.get('orthoTreatment')
     local = request.POST.get('orthoLocal')
@@ -204,15 +204,15 @@ def login_submit(request):
                     total += 1
                 my_dict['bsss']['total'] = total
                 for k, v in my_dict['bsss']['condition'].items():
-                    my_dict['bsss']['condition'][k] = (v/float(my_dict['bsss']['total']))*100
+                    my_dict['bsss']['condition'][k] = round((v/float(my_dict['bsss']['total']))*100, 1)
                 for k, v in my_dict['bsss']['service'].items():
-                    my_dict['bsss']['service'][k] = (v/float(my_dict['bsss']['total']))*100
+                    my_dict['bsss']['service'][k] = round((v/float(my_dict['bsss']['total']))*100, 1)
                 for k, v in my_dict['bsss']['quality'].items():
-                    my_dict['bsss']['quality'][k] = (v/float(my_dict['bsss']['total']))*100
+                    my_dict['bsss']['quality'][k] = round((v/float(my_dict['bsss']['total']))*100, 1)
                 for k, v in my_dict['bsss']['support'].items():
-                    my_dict['bsss']['support'][k] = (v/float(my_dict['bsss']['total']))*100
+                    my_dict['bsss']['support'][k] = round((v/float(my_dict['bsss']['total']))*100, 1)
                 for k, v in my_dict['bsss']['change'].items():
-                    my_dict['bsss']['change'][k] = (v/float(my_dict['bsss']['total']))*100
+                    my_dict['bsss']['change'][k] = round((v/float(my_dict['bsss']['total']))*100, 1)
 
             bhs = BreastHealth.objects.all()
             if bhs:
@@ -247,15 +247,15 @@ def login_submit(request):
                     total += 1
                 my_dict['bhs']['total'] = total
                 for k, v in my_dict['bhs']['center'].items():
-                    my_dict['bhs']['center'][k] = (v/float(my_dict['bhs']['total']))*100
+                    my_dict['bhs']['center'][k] = round((v/float(my_dict['bhs']['total']))*100, 1)
                 for k, v in my_dict['bhs']['procedure'].items():
-                    my_dict['bhs']['procedure'][k] = (v/float(my_dict['bhs']['total']))*100
+                    my_dict['bhs']['procedure'][k] = round((v/float(my_dict['bhs']['total']))*100, 1)
                 for k, v in my_dict['bhs']['quality'].items():
-                    my_dict['bhs']['quality'][k] = (v/float(my_dict['bhs']['total']))*100
+                    my_dict['bhs']['quality'][k] = round((v/float(my_dict['bhs']['total']))*100, 1)
                 for k, v in my_dict['bhs']['support'].items():
-                    my_dict['bhs']['support'][k] = (v/float(my_dict['bhs']['total']))*100
+                    my_dict['bhs']['support'][k] = round((v/float(my_dict['bhs']['total']))*100, 1)
                 for k, v in my_dict['bhs']['mammogram'].items():
-                    my_dict['bhs']['mammogram'][k] = (v/float(my_dict['bhs']['total']))*100
+                    my_dict['bhs']['mammogram'][k] = round((v/float(my_dict['bhs']['total']))*100, 1)
 
             es = Emergency.objects.all()
 
@@ -287,13 +287,13 @@ def login_submit(request):
                     total += 1
                 my_dict['es']['total'] = total
                 for k, v in my_dict['es']['condition'].items():
-                    my_dict['es']['condition'][k] = (v/float(my_dict['es']['total']))*100
+                    my_dict['es']['condition'][k] = round((v/float(my_dict['es']['total']))*100, 1)
                 for k, v in my_dict['es']['careflight'].items():
-                    my_dict['es']['careflight'][k] = (v/float(my_dict['es']['total']))*100
+                    my_dict['es']['careflight'][k] = round((v/float(my_dict['es']['total']))*100, 1)
                 for k, v in my_dict['es']['quality'].items():
-                    my_dict['es']['quality'][k] = (v/float(my_dict['es']['total']))*100
+                    my_dict['es']['quality'][k] = round((v/float(my_dict['es']['total']))*100, 1)
                 for k, v in my_dict['es']['location'].items():
-                    my_dict['es']['location'][k] = (v/float(my_dict['es']['total']))*100
+                    my_dict['es']['location'][k] = round((v/float(my_dict['es']['total']))*100, 1)
 
             ms = Maternity.objects.all()
 
@@ -329,15 +329,15 @@ def login_submit(request):
                     total += 1
                 my_dict['ms']['total'] = total
                 for k, v in my_dict['ms']['frequency'].items():
-                    my_dict['ms']['frequency'][k] = (v/float(my_dict['ms']['total']))*100
+                    my_dict['ms']['frequency'][k] = round((v/float(my_dict['ms']['total']))*100, 1)
                 for k, v in my_dict['ms']['health'].items():
-                    my_dict['ms']['health'][k] = (v/float(my_dict['ms']['total']))*100
+                    my_dict['ms']['health'][k] = round((v/float(my_dict['ms']['total']))*100, 1)
                 for k, v in my_dict['ms']['quality'].items():
-                    my_dict['ms']['quality'][k] = (v/float(my_dict['ms']['total']))*100
+                    my_dict['ms']['quality'][k] = round((v/float(my_dict['ms']['total']))*100, 1)
                 for k, v in my_dict['ms']['nicu'].items():
-                    my_dict['ms']['nicu'][k] = (v/float(my_dict['ms']['total']))*100
+                    my_dict['ms']['nicu'][k] = round((v/float(my_dict['ms']['total']))*100, 1)
                 for k, v in my_dict['ms']['reason'].items():
-                    my_dict['ms']['reason'][k] = (v/float(my_dict['ms']['total']))*100
+                    my_dict['ms']['reason'][k] = round((v/float(my_dict['ms']['total']))*100, 1)
 
             os = Orthopedics.objects.all()
             if os:
@@ -367,13 +367,13 @@ def login_submit(request):
                     total += 1
                 my_dict['os']['total'] = total
                 for k, v in my_dict['os']['condition'].items():
-                    my_dict['os']['condition'][k] = (v/float(my_dict['os']['total']))*100
+                    my_dict['os']['condition'][k] = round((v/float(my_dict['os']['total']))*100, 1)
                 for k, v in my_dict['os']['treatment'].items():
-                    my_dict['os']['treatment'][k] = (v/float(my_dict['os']['total']))*100
+                    my_dict['os']['treatment'][k] = round((v/float(my_dict['os']['total']))*100, 1)
                 for k, v in my_dict['os']['quality'].items():
-                    my_dict['os']['quality'][k] = (v/float(my_dict['os']['total']))*100
+                    my_dict['os']['quality'][k] = round((v/float(my_dict['os']['total']))*100, 1)
                 for k, v in my_dict['os']['location'].items():
-                    my_dict['os']['location'][k] = (v/float(my_dict['os']['total']))*100
+                    my_dict['os']['location'][k] = round((v/float(my_dict['os']['total']))*100, 1)
 
             return render(request, 'first_app/dashboard/dashboard.html', context=my_dict)
     else:

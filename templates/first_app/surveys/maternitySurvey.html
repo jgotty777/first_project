@@ -16,7 +16,7 @@
     <main>
     </br>
     <h3>Please fill out the following questionnaire based on your recent experience.</h3>
-    <form action="{% url 'matSubmit' %}?user={{request.GET.user}}" method="post" class="form-inline">
+    <form action="{% url 'matSubmit' %}?uid={{request.GET.uid}}" method="post" class="form-inline">
       {% csrf_token %}
       <ol>
         <li><p>Please rate the overall quality of the Labor & Delivery Suite:</p>
