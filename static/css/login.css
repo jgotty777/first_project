@@ -2,6 +2,8 @@ body {
     background-image: url("http://blog.soliant.com/wp-content/uploads/2017-winners-07-kettering-medical-center.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .loginScreen {
