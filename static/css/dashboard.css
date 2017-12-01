@@ -41,6 +41,12 @@ a, a:hover{
     text-decoration: none;
 }
 
+h3 {
+    font-size: 18px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 25px;
+}
+
 .bss h2{
     font-size: 22px;
     font-family: Georgia, "Times New Roman", Times, serif;

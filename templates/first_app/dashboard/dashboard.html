@@ -109,11 +109,11 @@
                 {% endfor %}
                 </div>
             </div>
-
+            <br/>
             <div class="container">
-            <b>Comments</b>
+            <h3>Comments</h3>
            <table class="table">
-                {% for entry in es.comments %}
+                {% for entry in bsss.comments %}
                   <tr>
                     <td><p>{{entry}}</p></td>
                   </tr>
@@ -209,14 +209,20 @@
                 {% endfor %}
                 </div>
             </div>
-
-            <b>Comments</b>
-            {% for entry in bhs.comments %}
-            <p>{{ entry }}</p>
-            {% endfor %}
-            {% else %}
-            <b>No results available.</b>
-            {% endif %}
+            <br/>
+            <div class="container">
+            <h3>Comments</h3>
+           <table class="table">
+                {% for entry in bhs.comments %}
+                  <tr>
+                    <td><p>{{entry}}</p></td>
+                  </tr>
+                {% endfor %}
+           </table>
+                {% else %}
+               <b>No results available.</b>
+                {% endif %}
+            </div>
         </div>
     </div>
     <div class="emergency">
@@ -287,20 +293,20 @@
                 {% endfor %}
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                 <tr><th><b>Comments</b></th></tr>
-                </thead>
-                <tbody>
+            <br/>
+            <div class="container">
+            <h3>Comments</h3>
+           <table class="table">
                 {% for entry in es.comments %}
-                <tr><td>{{entry}}</td></tr>
-                <!--<p>{{ entry }}</p>-->
+                  <tr>
+                    <td><p>{{entry}}</p></td>
+                  </tr>
                 {% endfor %}
+           </table>
                 {% else %}
-                <b>No results available.</b>
+               <b>No results available.</b>
                 {% endif %}
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
     <div class="maternity">
@@ -386,21 +392,26 @@
                 {% endfor %}
                 </div>
             </div>
-
-            <b>Comments</b>
-            {% for entry in ms.comments %}
-            <p>{{ entry }}</p>
-            {% endfor %}
-            {% else %}
-            <b>No results available.</b>
-            {% endif %}
+            <br/>
+           <div class="container">
+            <h3>Comments</h3>
+           <table class="table">
+                {% for entry in ms.comments %}
+                  <tr>
+                    <td><p>{{entry}}</p></td>
+                  </tr>
+                {% endfor %}
+           </table>
+                {% else %}
+               <b>No results available.</b>
+                {% endif %}
+            </div>
         </div>
     </div>
     <div class="ortho">
         <a href="#" onclick="toggle_visibility('ortho-nav');"><h2>Orthopedics</h2></a>
         <div id="ortho-nav">
             {% if os %}
-
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
                     Which condition applies to you for visiting our facility?
@@ -465,13 +476,20 @@
                 </div>
             </div>
 
-            <b>Comments</b>
-            {% for entry in os.comments %}
-            <p>{{ entry }}</p>
-            {% endfor %}
-            {% else %}
-            <b>No results available.</b>
-            {% endif %}
+            <br/>
+            <div class="container">
+            <h3>Comments</h3>
+           <table class="table">
+                {% for entry in os.comments %}
+                  <tr>
+                    <td><p>{{entry}}</p></td>
+                  </tr>
+                {% endfor %}
+           </table>
+                {% else %}
+               <b>No results available.</b>
+                {% endif %}
+            </div>
         </div>
     </div>
 </main>
