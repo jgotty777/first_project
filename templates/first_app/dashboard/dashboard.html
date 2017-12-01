@@ -30,7 +30,6 @@
         <a href="#" onclick="toggle_visibility('bss-nav');"><h2>Brain, Stroke, & Spine</h2></a>
         <div id="bss-nav">
             {% if bsss %}
-
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
                     Which condition applies to you for visiting our facility?
@@ -111,13 +110,19 @@
                 </div>
             </div>
 
+            <div class="container">
             <b>Comments</b>
-            {% for entry in bsss.comments %}
-            <p>{{ entry }}</p>
-            {% endfor %}
-            {% else %}
-            <b>No results available.</b>
-            {% endif %}
+           <table class="table">
+                {% for entry in es.comments %}
+                  <tr>
+                    <td><p>{{entry}}</p></td>
+                  </tr>
+                {% endfor %}
+           </table>
+                {% else %}
+               <b>No results available.</b>
+                {% endif %}
+            </div>
         </div>
     </div>
     <div class="breastHealth">
@@ -282,21 +287,26 @@
                 {% endfor %}
                 </div>
             </div>
-
-            <b>Comments</b>
-            {% for entry in es.comments %}
-            <p>{{ entry }}</p>
-            {% endfor %}
-            {% else %}
-            <b>No results available.</b>
-            {% endif %}
+            <table class="table">
+                <thead>
+                 <tr><th><b>Comments</b></th></tr>
+                </thead>
+                <tbody>
+                {% for entry in es.comments %}
+                <tr><td>{{entry}}</td></tr>
+                <!--<p>{{ entry }}</p>-->
+                {% endfor %}
+                {% else %}
+                <b>No results available.</b>
+                {% endif %}
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="maternity">
         <a href="#" onclick="toggle_visibility('matern-nav');"><h2>Maternity</h2></a>
         <div id="matern-nav">
             {% if ms %}
-
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
                     Please rate the overall quality of the Labor & Delivery Suite:
