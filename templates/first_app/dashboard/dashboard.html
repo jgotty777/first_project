@@ -15,6 +15,7 @@
         else
             e.style.display = 'block';
       }
+
     </script>
 </head>
 <body>
@@ -35,14 +36,14 @@
                     Which condition applies to you for visiting our facility?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bsss.condition.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bsss.condition.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -51,30 +52,31 @@
                     Which of our centers in the NeuroScience Institute did you visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bsss.service.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bsss.service.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you
+                    visited?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bsss.quality.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bsss.quality.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -83,14 +85,14 @@
                     Please indicate which of our support groups you may be intersted in attending, if any:
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bsss.support.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bsss.support.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -99,28 +101,28 @@
                     How has your condition changed overall since your visit to our facility?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bsss.change.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bsss.change.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
             <br/>
             <div class="container">
-            <h3>Comments</h3>
-           <table class="table">
-                {% for entry in bsss.comments %}
-                  <tr>
-                    <td><p>{{entry}}</p></td>
-                  </tr>
-                {% endfor %}
-           </table>
+                <h3>Comments</h3>
+                <table class="table">
+                    {% for entry in bsss.comments %}
+                    <tr>
+                        <td><p>{{entry}}</p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 {% else %}
-               <b>No results available.</b>
+                <b>No results available.</b>
                 {% endif %}
             </div>
         </div>
@@ -134,14 +136,14 @@
                     Which of our Breast Evaluation Centers did you attend for your visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bhs.center.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bhs.center.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -150,14 +152,14 @@
                     What procedure did you have completed during the visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bhs.procedure.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bhs.procedure.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -166,30 +168,31 @@
                     How often do you get a mammogram?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bhs.mammogram.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bhs.mammogram.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you
+                    visited?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bhs.quality.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bhs.quality.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -198,28 +201,28 @@
                     Please indicate which of our support groups you may be intersted in attending, if any:
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in bhs.support.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in bhs.support.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
             <br/>
             <div class="container">
-            <h3>Comments</h3>
-           <table class="table">
-                {% for entry in bhs.comments %}
-                  <tr>
-                    <td><p>{{entry}}</p></td>
-                  </tr>
-                {% endfor %}
-           </table>
+                <h3>Comments</h3>
+                <table class="table">
+                    {% for entry in bhs.comments %}
+                    <tr>
+                        <td><p>{{entry}}</p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 {% else %}
-               <b>No results available.</b>
+                <b>No results available.</b>
                 {% endif %}
             </div>
         </div>
@@ -233,14 +236,14 @@
                     Please select the reason for your recent visit to the Emergency Room.
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in es.condition.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in es.condition.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -249,14 +252,14 @@
                     Was Careflight needed to transport you to one of our facilities?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in es.careflight.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in es.careflight.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -265,44 +268,45 @@
                     Which location did you visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in es.location.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in es.location.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you
+                    visited?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in es.quality.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in es.quality.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
             <br/>
             <div class="container">
-            <h3>Comments</h3>
-           <table class="table">
-                {% for entry in es.comments %}
-                  <tr>
-                    <td><p>{{entry}}</p></td>
-                  </tr>
-                {% endfor %}
-           </table>
+                <h3>Comments</h3>
+                <table class="table">
+                    {% for entry in es.comments %}
+                    <tr>
+                        <td><p>{{entry}}</p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 {% else %}
-               <b>No results available.</b>
+                <b>No results available.</b>
                 {% endif %}
             </div>
         </div>
@@ -316,14 +320,14 @@
                     Please rate the overall quality of the Labor & Delivery Suite:
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in ms.quality.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in ms.quality.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -332,14 +336,14 @@
                     On average, about how often dname the nurse on duty check on the patient(s)?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in ms.frequency.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in ms.frequency.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -348,60 +352,62 @@
                     After being discharged, how is the overall health of your baby/babies?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in ms.health.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in ms.health.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in any way?
+                    During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in
+                    any way?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in ms.nicu.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in ms.nicu.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    If you answered yes in the previous question, what was the reason that your child was cared for in the NICU?
+                    If you answered yes in the previous question, what was the reason that your child was cared for in
+                    the NICU?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in ms.reason.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in ms.reason.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
             <br/>
-           <div class="container">
-            <h3>Comments</h3>
-           <table class="table">
-                {% for entry in ms.comments %}
-                  <tr>
-                    <td><p>{{entry}}</p></td>
-                  </tr>
-                {% endfor %}
-           </table>
+            <div class="container">
+                <h3>Comments</h3>
+                <table class="table">
+                    {% for entry in ms.comments %}
+                    <tr>
+                        <td><p>{{entry}}</p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 {% else %}
-               <b>No results available.</b>
+                <b>No results available.</b>
                 {% endif %}
             </div>
         </div>
@@ -415,14 +421,14 @@
                     Which condition applies to you for visiting our facility?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in os.condition.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in os.condition.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -431,14 +437,14 @@
                     Which of the following treatments were performed at your visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in os.treatment.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in os.treatment.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -447,45 +453,46 @@
                     Which location did you visit?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in os.location.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in os.location.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <div class='barcontainer'>
                 <div class='barcontainerheader'>
-                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?
+                    What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you
+                    visited?
                 </div>
                 <div class="graphcontainer">
-                {% for entry, value in os.quality.items %}
-                <div class='bar' style='height:{{value}}%'>
-                    {{value}}%
-                    <div class='barlabel'>
-                        {{entry}}
+                    {% for entry, value in os.quality.items %}
+                    <div class='bar' style='height:{{value}}%'>
+                        {{value}}%
+                        <div class='barlabel'>
+                            {{entry}}
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
 
             <br/>
             <div class="container">
-            <h3>Comments</h3>
-           <table class="table">
-                {% for entry in os.comments %}
-                  <tr>
-                    <td><p>{{entry}}</p></td>
-                  </tr>
-                {% endfor %}
-           </table>
+                <h3>Comments</h3>
+                <table class="table">
+                    {% for entry in os.comments %}
+                    <tr>
+                        <td><p>{{entry}}</p></td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 {% else %}
-               <b>No results available.</b>
+                <b>No results available.</b>
                 {% endif %}
             </div>
         </div>

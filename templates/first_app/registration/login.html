@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-  <head>
+<head>
     <title>Login</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-  </head>
-  <body>
-    <div class="loginScreen">
-        <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
-        <h1>Login</h1>
-        <form action="{% url 'login_submit' %}" class="form-inline" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="input-group">
+</head>
+<body>
+<div class="loginScreen">
+    <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+    <h1>Login</h1>
+    <form action="{% url 'login_submit' %}" class="form-inline" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="input-group">
             <input class="form-control" type="text" aria-describedby="username" name="username" placeholder="Username">
-                <span class="input-group-addon" id="username"><span class="glyphicon glyphicon-user"></span></span>
-            </div>
-            <div class="input-group">
-            <input class="form-control" type="password" area-describedby="password" name="password" placeholder="Password">
+            <span class="input-group-addon" id="username"><span class="glyphicon glyphicon-user"></span></span>
+        </div>
+        <div class="input-group">
+            <input class="form-control" type="password" area-describedby="password" name="password"
+                   placeholder="Password">
             <span class="input-group-addon" id="password"><span class="glyphicon glyphicon-lock"></span></span>
             </input>
-                </div>
-            <button class="btn" type="submit">Login</button>
-        </form>
-    </div>
-  </body>
+        </div>
+        <button class="btn" type="submit">Login</button>
+    </form>
+</div>
+</body>
 </html>

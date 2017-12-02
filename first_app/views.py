@@ -12,33 +12,23 @@ def index(request):
 
 
 def maternitySurvey(request):
-    my_dict = {
-        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/maternitySurvey.html', context=my_dict)
+    return render(request, 'first_app/surveys/maternitySurvey.html')
 
 
 def brainSpineSurvey(request):
-    my_dict = {
-        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/brain_spine_stroke.html', context=my_dict)
+    return render(request, 'first_app/surveys/brain_spine_stroke.html')
 
 
 def emergencySurvey(request):
-    my_dict = {
-        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/emergency.html', context=my_dict)
+    return render(request, 'first_app/surveys/emergency.html')
 
 
 def breastHealthSurvey(request):
-    my_dict = {
-        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/breast_health.html', context=my_dict)
+    return render(request, 'first_app/surveys/breast_health.html')
 
 
 def orthopedicsSurvey(request):
-    my_dict = {
-        'insert_me': "Please complete the form below to give Marvel marketing data on which superhero is the favorite of certain demographics. Also from Django"}
-    return render(request, 'first_app/surveys/orthopedics.html', context=my_dict)
+    return render(request, 'first_app/surveys/orthopedics.html')
 
 
 # Create submit views here
@@ -52,7 +42,6 @@ def matSubmit(request):
     nic = request.POST.get('nicu')
     reas = request.POST.get('nicuCondition')
     comm = request.POST.get('comments')
-    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Maternity')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -74,7 +63,6 @@ def bssSubmit(request):
     sup = request.POST.get('bssSupportGroup')
     condchange = request.POST.get('bssConditionChange')
     comm = request.POST.get('comments')
-    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Brain')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -96,7 +84,6 @@ def brSubmit(request):
     qual = request.POST.get('breastQuality')
     sup = request.POST.get('breastSupportGroup')
     comm = request.POST.get('comments')
-    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Breast')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -117,7 +104,6 @@ def emergSubmit(request):
     local = request.POST.get('emergLocal')
     qual = request.POST.get('emergQuality')
     comm = request.POST.get('comments')
-    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Emergency')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:
@@ -137,7 +123,6 @@ def orthoSubmit(request):
     local = request.POST.get('orthoLocal')
     qual = request.POST.get('orthoQuality')
     comm = request.POST.get('comments')
-    # user_survey = User_Survey.objects.filter(patient_id=pat, survey='Ortho')[0]
     if user_survey.status == 1:
         return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     else:

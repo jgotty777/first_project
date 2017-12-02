@@ -1,138 +1,147 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-  <head>
+<head>
     <title>Maternity Survey</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
     <link rel="stylesheet" href="http://www.ketteringhealth.org/css/bootstrap.css" media="all">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  </head>
-  <body>
-    <header>
-      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
-      <h1>Maternity Survey</h1>
-    </header>
-    <main>
+</head>
+<body>
+<header>
+    <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+    <h1>Maternity Survey</h1>
+</header>
+<main>
     </br>
     <h3>Please fill out the following questionnaire based on your recent experience.</h3>
     <form action="{% url 'matSubmit' %}?uid={{request.GET.uid}}" method="post" class="form-inline">
-      {% csrf_token %}
-      <ol>
-        <li><p>Please rate the overall quality of the Labor & Delivery Suite:</p>
-        <div class="col-md-3">
-        <label>
-        <input type="radio" name="deliverySuite" value=1 checked></input> 1 (terrible) </label>
+        {% csrf_token %}
+        <ol>
+            <li><p>Please rate the overall quality of the Labor & Delivery Suite:</p>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="deliverySuite" value=1 checked></input> 1 (terrible) </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="deliverySuite" value=2></input> 2 </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="deliverySuite" value=3></input> 3 </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="deliverySuite" value=4></input> 4 </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="deliverySuite" value=5></input> 5 (great) </label>
+                </div>
+            </li>
+            <li>
+                <p>On average, about how often dname the nurse on duty check on the patient(s)?</p>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="nurse" checked value="Multiple times each hour"></input> Multiple
+                        times each hour </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="nurse" value="Once per hour"></input> Once per hour </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="nurse" value="Once every 2 hours"></input> Once every 2 hours </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="nurse" value="Once every 3 or more hours"></input> Once every 3 or
+                        more hours </label>
+                </div>
+            </li>
+            <li>
+                <p>After being discharged, how is the overall health of your baby/babies?</p>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="Poor" checked></input> Poor </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="OK"></input> OK </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="Neutral"></input> Neutral </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="Good"></input> Good </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="Great"></input> Great </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="babyHealth" value="Excellent"></input> Excellent </label>
+                </div>
+            </li>
+            <li>
+                <p>During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in
+                    any way?</p>
+                <div class="col-md-6">
+                    <label>
+                        <input type="radio" name="nicu" value=True checked></input> Yes </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicu" value=False></input> No </label>
+                </div>
+            </li>
+            <li>
+                <p>If you answered yes in the previous question, what was the reason that your child was cared for in
+                    the NICU?</p>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" value="Not applicable" checked></input> Not applicable
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" value="Pre-Mature"></input> Pre-Mature </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" value="Low birth weight"></input> Low birth weight
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" value="Multiples (twins/triplets)"></input> Multiples
+                        (twins/triplets) </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" values="Oxygen Therapy"></input> Oxygen Therapy
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="nicuCondition" values="Special Needs Feeding"></input> Special Needs
+                        Feeding </label>
+                </div>
+            </li>
+            <li>
+                <p>Please comment below if you have any further opinions on your recent visit.</p>
+                <textarea class="form-control" name="comments" rows="5"></textarea>
+            </li>
+        </ol>
         </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="deliverySuite" value=2></input> 2 </label>
-        </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="deliverySuite" value=3></input> 3 </label>
-        </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="deliverySuite" value=4></input> 4 </label>
-        </div>
-        <div class="col-md-3">
-        <label>
-        <input type="radio" name="deliverySuite" value=5></input> 5 (great) </label>
-        </div>
-        </li>
-        <li>
-          <p>On average, about how often dname the nurse on duty check on the patient(s)?</p>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="nurse" checked value="Multiple times each hour"></input> Multiple times each hour </label>
-          </div>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="nurse" value="Once per hour"></input> Once per hour </label>
-          </div>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="nurse" value="Once every 2 hours"></input> Once every 2 hours </label>
-          </div>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="nurse" value="Once every 3 or more hours"></input> Once every 3 or more hours </label>
-          </div>
-        </li>
-        <li>
-          <p>After being discharged, how is the overall health of your baby/babies?</p>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="Poor" checked></input> Poor </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="OK"></input> OK </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="Neutral"></input> Neutral </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="Good"></input> Good </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="Great"></input> Great </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="babyHealth" value="Excellent"></input> Excellent </label>
-          </div>
-        </li>
-        <li>
-          <p>During your visit to our facility, did you interact with our Neonatal Intensive Care Unit (NICU) in any way?</p>
-          <div class="col-md-6">
-          <label>
-          <input type="radio" name="nicu" value=True checked></input> Yes </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicu" value=False></input> No </label>
-          </div>
-        </li>
-        <li>
-          <p>If you answered yes in the previous question, what was the reason that your child was cared for in the NICU?</p>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" value="Not applicable" checked></input> Not applicable </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" value="Pre-Mature"></input> Pre-Mature </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" value="Low birth weight"></input> Low birth weight </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" value="Multiples (twins/triplets)"></input> Multiples (twins/triplets) </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" values="Oxygen Therapy"></input> Oxygen Therapy </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="nicuCondition" values="Special Needs Feeding"></input> Special Needs Feeding </label>
-          </div>
-        </li>
-        <li>
-          <p>Please comment below if you have any further opinions on your recent visit.</p>
-          <textarea class="form-control" name="comments" rows="5"></textarea>
-        </li>
-      </ol>
-    </div>
-    <input class="btn" type="submit">
-  </form>
-    </main>
-  </body>
+        <input class="btn" type="submit">
+    </form>
+</main>
+</body>
 </html>

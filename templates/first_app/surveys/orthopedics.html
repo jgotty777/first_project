@@ -1,122 +1,133 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-  <head>
+<head>
     <title>Orthopedics Survey</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="http://www.ketteringhealth.org/ico/favicon.ico">
     <link rel="stylesheet" href="http://www.ketteringhealth.org/css/bootstrap.css" media="all">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  </head>
-  <body>
-    <header>
-      <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
-      <h1>Orthopedics Survey</h1>
-    </header>
-    <main>
+</head>
+<body>
+<header>
+    <img style="padding:7px 0;" src="http://www.ketteringhealth.org/images/logomobile.png" alt="Kettering Health Logo">
+    <h1>Orthopedics Survey</h1>
+</header>
+<main>
     </br>
     <h3>Please fill out the following questionnaire based on your recent experience.</h3>
     <form action="{% url 'orthoSubmit' %}?uid={{request.GET.uid}}" method="post" class="form-inline">
         {% csrf_token %}
-      <ol>
-        <li><p>Which condition applies to you for visiting our facility?</p>
-        <div class="col-md-3">
-        <label>
-        <input type="radio" name="orthoCondition" value="Hip Replacement" checked></input> Hip Replacement </label>
-        </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="orthoCondition" value="Knee Replacement"></input> Knee Replacement </label>
-        </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="orthoCondition" value="Shoulder Replacement"></input> Shoulder Replacement </label>
-        </div>
-        <div class="col-md-2">
-        <label>
-        <input type="radio" name="orthoCondition" value="Hand Surgery"></input> Hand Surgery </label>
-        </div>
-        <div class="col-md-3">
-        <label>
-        <input type="radio" name="orthoCondition" value="Other"></input> Other </label>
-        </div>
-        </li>
-        <li>
-          <p>Which of the following treatments were performed at your visit?</p>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="orthoTreatment" value="Consultation" checked></input> Consultation </label>
-          </div>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="orthoTreatment" value="Surgery"></input> Surgery </label>
-          </div>
-          <div class="col-md-3">
-          <label>
-          <input type="radio" name="orthoTreatment" value="Rehab"></input> Rehabilitation </label>
-          </div>
-        </li>
-        <li>
-          <p>Which location did you visit?</p>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Fort Hamilton" checked></input> Fort Hamilton Hospital - Orthopedics & Sports Medicine </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Grandview Medical"></input> Grandview Bone & Joint - Grandview Medical Center </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Kettering Medical"></input> Kettering Medical Center Joint Center </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Soin Medical"></input> Soin Medical Center - Joint & Spine </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Sycamore Medical"></input> Sycamore Medical Center - Joint & Spine </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoLocal" value="Greene Memorial"></input> Greene Memorial Hospital Orthopedics </label>
-          </div>
-        </li>
-        <li>
-          <p>What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you visited?</p>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="Poor" checked></input> Poor </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="OK"></input> OK </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="Neutral"></input> Neutral </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="Good"></input> Good </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="Great"></input> Great </label>
-          </div>
-          <div class="col-md-2">
-          <label>
-          <input type="radio" name="orthoQuality" value="Excellent"></input> Excellent </label>
-          </div>
-        </li>
-        <li>
-          <p>Please comment below if you have any further opinions on your recent visit.</p>
-          <textarea class="form-control" name="comments" rows="5"></textarea>
-        </li>
-      </ol>
-      <button class="btn">Submit</button>
+        <ol>
+            <li><p>Which condition applies to you for visiting our facility?</p>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="orthoCondition" value="Hip Replacement" checked></input> Hip
+                        Replacement </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoCondition" value="Knee Replacement"></input> Knee Replacement
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoCondition" value="Shoulder Replacement"></input> Shoulder
+                        Replacement </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoCondition" value="Hand Surgery"></input> Hand Surgery </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="orthoCondition" value="Other"></input> Other </label>
+                </div>
+            </li>
+            <li>
+                <p>Which of the following treatments were performed at your visit?</p>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="orthoTreatment" value="Consultation" checked></input> Consultation
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="orthoTreatment" value="Surgery"></input> Surgery </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <input type="radio" name="orthoTreatment" value="Rehab"></input> Rehabilitation </label>
+                </div>
+            </li>
+            <li>
+                <p>Which location did you visit?</p>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Fort Hamilton" checked></input> Fort Hamilton
+                        Hospital - Orthopedics & Sports Medicine </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Grandview Medical"></input> Grandview Bone & Joint
+                        - Grandview Medical Center </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Kettering Medical"></input> Kettering Medical
+                        Center Joint Center </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Soin Medical"></input> Soin Medical Center - Joint
+                        & Spine </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Sycamore Medical"></input> Sycamore Medical Center
+                        - Joint & Spine </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoLocal" value="Greene Memorial"></input> Greene Memorial Hospital
+                        Orthopedics </label>
+                </div>
+            </li>
+            <li>
+                <p>What was the overall quality (cleanliness, nurse/phsyician attendence, etc.) of the facility you
+                    visited?</p>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="Poor" checked></input> Poor </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="OK"></input> OK </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="Neutral"></input> Neutral </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="Good"></input> Good </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="Great"></input> Great </label>
+                </div>
+                <div class="col-md-2">
+                    <label>
+                        <input type="radio" name="orthoQuality" value="Excellent"></input> Excellent </label>
+                </div>
+            </li>
+            <li>
+                <p>Please comment below if you have any further opinions on your recent visit.</p>
+                <textarea class="form-control" name="comments" rows="5"></textarea>
+            </li>
+        </ol>
+        <button class="btn">Submit</button>
     </form>
-    </main>
-  </body>
+</main>
+</body>
 </html>
