@@ -12,22 +12,42 @@ def index(request):
 
 
 def maternitySurvey(request):
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    if user_survey.status == 1:
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     return render(request, 'first_app/surveys/maternitySurvey.html')
 
 
 def brainSpineSurvey(request):
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    if user_survey.status == 1:
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     return render(request, 'first_app/surveys/brain_spine_stroke.html')
 
 
 def emergencySurvey(request):
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    if user_survey.status == 1:
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     return render(request, 'first_app/surveys/emergency.html')
 
 
 def breastHealthSurvey(request):
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    if user_survey.status == 1:
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     return render(request, 'first_app/surveys/breast_health.html')
 
 
 def orthopedicsSurvey(request):
+    user_survey_id = request.GET.get('uid')
+    user_survey = User_Survey.objects.get(pk=user_survey_id)
+    if user_survey.status == 1:
+        return HttpResponse("<b>We're sorry, but this survey has already been completed.</b>")
     return render(request, 'first_app/surveys/orthopedics.html')
 
 
